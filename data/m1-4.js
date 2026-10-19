@@ -4079,7 +4079,7 @@ TRACK.modules.push({
        "best": false
       },
       {
-       "text": "Build automated security checks into the pipeline, provide secure-by-default libraries and train security champions in each squad, measuring repeat findings and fix times.",
+       "text": "Build automated security checks into the pipeline, provide secure-by-default libraries and train security champions in each delivery team, measuring repeat findings and fix times.",
        "feedback": "Best. Automation and enablement fit the release speed, prevent repeat issues and address the CTO's concern by keeping the secure path fast.",
        "best": true
       }
