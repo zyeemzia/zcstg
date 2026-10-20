@@ -34,29 +34,32 @@ TRACK.modules.push({
       "A faulty security software update in July 2024 crashed millions of computers worldwide, showing that a supplier failure need not be an attack",
       "Regulators in banking and critical infrastructure now hold firms accountable for outsourced services",
       "Customers judge you for a breach at your processor as if it were your own",
-      "Concentration on a few cloud and software providers creates sector-wide single points of failure"
+      "Concentration on a few cloud and software providers creates sector-wide single points of failure",
+      "Under the EU's DORA, financial supervisors began designating critical ICT third-party providers for direct oversight in late 2025"
      ],
      "title": "Why boards now ask about suppliers"
     },
     {
-     "type": "flow",
+     "type": "cycle",
      "title": "The TPRM lifecycle",
+     "center": "Business owner",
+     "caption": "The loop restarts at every renewal or change of scope; offboarding evidence and lessons feed the next sourcing decision. The business owner stays accountable all the way round.",
      "items": [
       {
        "label": "Plan and source",
-       "text": "Define need, risk appetite and requirements before choosing"
+       "text": "Define need, appetite and requirements before choosing"
       },
       {
        "label": "Tier",
-       "text": "Rate inherent risk by data, access, criticality"
+       "text": "Rate inherent risk by data, access and criticality"
       },
       {
        "label": "Due diligence",
-       "text": "Assess security, resilience, finance, legal, ESG"
+       "text": "Security, resilience, finance, legal, ESG"
       },
       {
        "label": "Contract",
-       "text": "Embed security, audit, notification and exit terms"
+       "text": "Security, audit, notification and exit terms"
       },
       {
        "label": "Monitor",
@@ -64,7 +67,7 @@ TRACK.modules.push({
       },
       {
        "label": "Offboard",
-       "text": "Revoke access, retrieve or destroy data, confirm exit"
+       "text": "Revoke access, return or destroy data"
       }
      ]
     },
@@ -103,6 +106,46 @@ TRACK.modules.push({
       ]
      ],
      "title": "Tiering by inherent risk"
+    },
+    {
+     "type": "matrix",
+     "title": "Tiering suppliers by inherent risk",
+     "x": "Data and system access",
+     "y": "Business criticality and difficulty to replace",
+     "caption": "Two questions place most suppliers: what could they expose, and what stops if they fail? Critical suppliers with little data access still need deep resilience and exit work.",
+     "quadrants": [
+      {
+       "title": "Tier 2: critical, little data",
+       "items": [
+        "Payment network link",
+        "Data centre facilities",
+        "Focus: resilience, exit plan"
+       ]
+      },
+      {
+       "title": "Tier 1: critical with deep access",
+       "items": [
+        "Core ledger hosting",
+        "Managed SOC provider",
+        "Full assessment, continuous monitoring"
+       ]
+      },
+      {
+       "title": "Tier 4: low",
+       "items": [
+        "Stationery, catering",
+        "Basic checks at onboarding"
+       ]
+      },
+      {
+       "title": "Tier 2-3: sensitive but replaceable",
+       "items": [
+        "Payroll SaaS",
+        "Marketing platform with customer lists",
+        "Focus: data protection terms"
+       ]
+      }
+     ]
     },
     {
      "type": "callout",
@@ -219,6 +262,16 @@ TRACK.modules.push({
        "term": "Business owner of a supplier",
        "def": "The person accountable for the relationship and for accepting its residual risk."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Every supplier extends your attack surface; failures need not be attacks to stop your services.",
+      "Tier first by inherent risk, then scale due diligence, contract terms and monitoring to the tier.",
+      "The business owner is accountable for supplier risk; procurement, security, legal and risk support the decision.",
+      "Block purchase orders for higher tiers until assessment is complete, and offboard with evidence."
      ]
     },
     {
@@ -380,6 +433,126 @@ TRACK.modules.push({
      "text": "**Fourth parties** are your suppliers' suppliers. Your payroll SaaS runs on a cloud provider, uses an email service and a support-desk tool. You have no contract with them, but their failure becomes yours. **Concentration risk** arises when many critical services, yours or your whole sector's, depend on the same provider. Regulators increasingly ask firms to map these dependencies."
     },
     {
+     "type": "topology",
+     "title": "Hidden concentration behind three suppliers",
+     "caption": "Three suppliers with separate contracts all run on the same cloud provider, so one regional outage stops payroll, core banking and customer service at once. You only see it by asking who your suppliers depend on.",
+     "nodes": [
+      {
+       "id": "mail",
+       "kind": "cloud",
+       "label": "Email service",
+       "sub": "Fourth party",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "id": "cloud",
+       "kind": "cloud",
+       "label": "Cloud provider",
+       "sub": "Same region for all three",
+       "x": 3,
+       "y": 0
+      },
+      {
+       "id": "desk",
+       "kind": "cloud",
+       "label": "Support desk",
+       "sub": "Fourth party",
+       "x": 6,
+       "y": 0
+      },
+      {
+       "id": "pay",
+       "kind": "server",
+       "label": "Payroll SaaS",
+       "sub": "Tier 2",
+       "x": 0,
+       "y": 3
+      },
+      {
+       "id": "core",
+       "kind": "server",
+       "label": "Core banking",
+       "sub": "Hosting provider, Tier 1",
+       "x": 3,
+       "y": 3
+      },
+      {
+       "id": "crm",
+       "kind": "server",
+       "label": "CRM SaaS",
+       "sub": "Tier 2",
+       "x": 6,
+       "y": 3
+      },
+      {
+       "id": "org",
+       "kind": "team",
+       "label": "Your bank",
+       "x": 3,
+       "y": 6
+      }
+     ],
+     "zones": [
+      {
+       "label": "Fourth parties: no contract with you",
+       "x": 0,
+       "y": 0,
+       "w": 7,
+       "h": 1,
+       "tone": "warn"
+      },
+      {
+       "label": "Your suppliers",
+       "x": 0,
+       "y": 3,
+       "w": 7,
+       "h": 1,
+       "tone": "neutral"
+      }
+     ],
+     "links": [
+      {
+       "a": "org",
+       "b": "pay"
+      },
+      {
+       "a": "org",
+       "b": "core",
+       "style": "bold"
+      },
+      {
+       "a": "org",
+       "b": "crm"
+      },
+      {
+       "a": "pay",
+       "b": "cloud",
+       "style": "dashed"
+      },
+      {
+       "a": "core",
+       "b": "cloud",
+       "style": "dashed"
+      },
+      {
+       "a": "crm",
+       "b": "cloud",
+       "style": "dashed"
+      },
+      {
+       "a": "pay",
+       "b": "mail",
+       "style": "dashed"
+      },
+      {
+       "a": "crm",
+       "b": "desk",
+       "style": "dashed"
+      }
+     ]
+    },
+    {
      "type": "compare",
      "title": "Point-in-time versus continuous monitoring",
      "columns": [
@@ -504,6 +677,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Questionnaires show what suppliers say; independent reports, certificates and tests show what is likely true.",
+      "A SOC 2 Type II report covers operation over a period; read its scope, exceptions, carve-outs and CUECs.",
+      "Carved-out subservice providers are fourth parties you must assess yourself.",
+      "Combine periodic deep reviews for higher tiers with continuous and event-driven monitoring, and map concentration."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -612,6 +795,11 @@ TRACK.modules.push({
        "Stolen signing keys or tokens",
        "Attacker signs malicious code as the vendor",
        "HSM-protected keys, short-lived tokens"
+      ],
+      [
+       "Self-spreading registry malware",
+       "Malware steals maintainers' publishing tokens and republishes itself in their other packages, as seen in a major registry in 2025",
+       "Phishing-resistant MFA and short-lived publishing credentials for maintainers; pinned versions; delay adopting brand-new releases"
       ]
      ],
      "title": "Supply-chain attack patterns"
@@ -630,7 +818,7 @@ TRACK.modules.push({
     {
      "type": "callout",
      "kind": "definition",
-     "text": "An **SBOM** is a machine-readable list of the components, versions and dependencies in a piece of software, commonly in SPDX or CycloneDX format. It lets you answer within hours, not weeks, the question 'where do we use the vulnerable library?' A related **VEX** statement tells you whether a known vulnerability is actually exploitable in that product.",
+     "text": "An **SBOM** is a machine-readable list of the components, versions and dependencies in a piece of software, commonly in SPDX or CycloneDX format. It lets you answer within hours, not weeks, the question 'where do we use the vulnerable library?' The EU Cyber Resilience Act makes an SBOM part of the technical documentation for products with digital elements sold in the EU. A related **VEX** statement tells you whether a known vulnerability is actually exploitable in that product.",
      "title": "Software bill of materials (SBOM)"
     },
     {
@@ -675,6 +863,72 @@ TRACK.modules.push({
         "Phishing-resistant MFA for developers and maintainers",
         "Least-privilege pipeline tokens"
        ]
+      }
+     ]
+    },
+    {
+     "type": "sequence",
+     "title": "From commit to verified deployment",
+     "actors": [
+      "Developer",
+      "Source repo",
+      "Build service",
+      "Signing (HSM)",
+      "Artifact registry",
+      "Deploy pipeline"
+     ],
+     "caption": "Integrity is checked twice: the build signs what it produced and records how, and the deploy pipeline refuses anything whose signature or provenance does not match policy.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Signed commit, two-person review"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Trigger build from protected branch"
+      },
+      {
+       "from": 2,
+       "to": 4,
+       "label": "Fetch pinned dependencies (private mirror)"
+      },
+      {
+       "from": 2,
+       "to": 2,
+       "label": "Ephemeral build; generate SBOM"
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "Sign artefact and provenance"
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "label": "Signatures; key never leaves HSM",
+       "reply": true
+      },
+      {
+       "from": 2,
+       "to": 4,
+       "label": "Publish artefact, SBOM, provenance"
+      },
+      {
+       "from": 5,
+       "to": 4,
+       "label": "Fetch release"
+      },
+      {
+       "from": 5,
+       "to": 5,
+       "label": "Verify signature, provenance, policy"
+      },
+      {
+       "from": 5,
+       "to": 5,
+       "label": "Deploy only if every check passes"
       }
      ]
     },
@@ -783,6 +1037,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "One compromised component, maintainer account or build server can reach thousands of victims.",
+      "SBOMs answer 'where are we exposed?' in hours; VEX says whether a flaw is actually exploitable.",
+      "Protect the pipeline end to end: reviewed source, pinned dependencies, isolated builds, signed artefacts and verification at deploy.",
+      "Ask suppliers for SBOMs and secure development evidence, and support the open-source projects you depend on."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -839,6 +1103,17 @@ TRACK.modules.push({
        ],
        "answer": 2,
        "explain": "Trusted insiders and hidden artefacts evade normal review."
+      },
+      {
+       "q": "In 2025 malware spread through a public package registry by stealing maintainers' publishing tokens. Which control would most directly have limited its spread from your developers' accounts?",
+       "options": [
+        "A larger antivirus deployment on build servers, with daily full scans of every dependency cache",
+        "Phishing-resistant MFA and short-lived publishing credentials for maintainers",
+        "Annual secure-coding training",
+        "Moving source code to a different hosting provider"
+       ],
+       "answer": 1,
+       "explain": "The worm propagated with stolen long-lived publishing tokens. Strong MFA and short-lived publishing credentials remove what it needed; scanning, training or rehosting do not."
       }
      ]
     }
@@ -857,7 +1132,7 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "A contract is a security control. It defines what the supplier must do, what you can verify, how fast you will hear about problems and how you can leave. Financial regulators, including central banks in South Asia and the EU's Digital Operational Resilience Act (DORA), now set explicit expectations for outsourcing and ICT third-party contracts, especially for critical services."
+     "text": "A contract is a security control. It defines what the supplier must do, what you can verify, how fast you will hear about problems and how you can leave. Financial regulators, including central banks in South Asia and the EU's Digital Operational Resilience Act (DORA), now set explicit expectations for outsourcing and ICT third-party contracts, especially for critical services. DORA, for example, requires financial entities to keep a register of information on all their ICT third-party arrangements."
     },
     {
      "type": "table",
@@ -998,6 +1273,63 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "sequence",
+     "title": "Handling a supplier incident without waiting",
+     "actors": [
+      "Threat intel",
+      "Security lead",
+      "IT operations",
+      "Supplier",
+      "Legal and DPO",
+      "Regulator"
+     ],
+     "caption": "Containment of your own exposure starts before the supplier speaks; the supplier's facts then shape the notification decision, which runs on your own legal clock.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Supplier's product mass-exploited"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Suspend integration, rotate keys"
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Which of our data was exposed?"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Contained; logs preserved",
+       "reply": true
+      },
+      {
+       "from": 3,
+       "to": 1,
+       "label": "Confirmed: files accessed",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 4,
+       "label": "Assess notification duties"
+      },
+      {
+       "from": 4,
+       "to": 5,
+       "label": "Notify within legal deadline"
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Joint bridge: fixes and timeline"
+      }
+     ]
+    },
+    {
      "type": "scenario",
      "title": "A file-transfer supplier is breached",
      "situation": "A news report says a managed file-transfer service used by a garment exporter to exchange purchase orders and payment files with buyers has a mass-exploited vulnerability. The supplier has not contacted its customers. What should the exporter's security lead do FIRST?",
@@ -1085,6 +1417,16 @@ TRACK.modules.push({
        "term": "Incident notification clause",
        "def": "A contract term requiring the supplier to report incidents affecting the customer within a set time."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "A contract is a control: security requirements, notification times, audit rights, subcontracting and exit terms.",
+      "With hyperscale providers, compensate for standard terms with their assurance reports, pooled audits and stronger exit plans.",
+      "Plan for a stressed exit and test data export in practice, not only on paper.",
+      "Treat a supplier breach as your incident: assess and contain your own exposure without waiting."
      ]
     },
     {
@@ -1255,6 +1597,56 @@ TRACK.modules.push({
      "title": "Core SOC services and who typically owns them in a hybrid model"
     },
     {
+     "type": "sequence",
+     "title": "A 2 a.m. escalation in a hybrid SOC",
+     "actors": [
+      "MDR analyst",
+      "Endpoint platform",
+      "Internal on-call",
+      "Service owner"
+     ],
+     "caption": "The provider acts at once within pre-approved limits; anything that disrupts a business service goes to the internal team and the accountable owner, who can decide within minutes because the route was agreed in advance.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 0,
+       "label": "Triage: ransomware precursor on a laptop"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Isolate laptop (pre-approved action)"
+      },
+      {
+       "from": 0,
+       "to": 2,
+       "label": "Escalate: same activity on file server"
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "Isolate file server? Branch impact"
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "label": "Approved; branches use offline process",
+       "reply": true
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Isolate file server"
+      },
+      {
+       "from": 2,
+       "to": 0,
+       "label": "Keep hunting; update hourly",
+       "reply": true
+      }
+     ]
+    },
+    {
      "type": "formula",
      "title": "Staffing a 24x7 seat",
      "items": [
@@ -1287,6 +1679,30 @@ TRACK.modules.push({
      "title": "The arithmetic that changes minds"
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "People needed for one 24x7 seat",
+     "caption": "Worked from the formula above (8,760 hours divided by productive hours per analyst), not survey data. Every hundred hours of leave, training or sickness per person pushes the headcount up.",
+     "labels": [
+      "1,500 h",
+      "1,600 h",
+      "1,700 h",
+      "1,800 h"
+     ],
+     "series": [
+      {
+       "name": "FTE per seat",
+       "values": [
+        5.8,
+        5.5,
+        5.2,
+        4.9
+       ]
+      }
+     ],
+     "yLabel": "FTE"
+    },
+    {
      "type": "framework",
      "title": "SOC maturity path",
      "items": [
@@ -1316,6 +1732,12 @@ TRACK.modules.push({
        "text": "Automation, metrics-driven improvement and business-aligned risk reporting."
       }
      ]
+    },
+    {
+     "type": "callout",
+     "kind": "warning",
+     "title": "AI assistants in the SOC",
+     "text": "AI tools that summarise alerts, draft queries or suggest containment can raise analyst capacity, but govern them like any privileged automation: keep a human decision for business-impacting actions, log prompts and outputs, test them on your own data before trusting them, and remember that attacker-controlled text in emails, logs or tickets can try to manipulate them (prompt injection)."
     },
     {
      "type": "scenario",
@@ -1418,6 +1840,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Decide which SOC capabilities to own and which to buy; hybrid models are the common answer.",
+      "One continuously staffed seat needs roughly five to six people, so reducing noise is cheaper than hiring.",
+      "Providers act within pre-approved limits; business-impacting containment stays with the internal team and owners.",
+      "Govern AI assistants in the SOC like privileged automation, with human approval and logging."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -1495,31 +1927,33 @@ TRACK.modules.push({
      "text": "Many SOCs run on default vendor rules and hope. **Detection engineering** treats detections as products: designed for specific threats, written and version-controlled as code, tested against realistic attacks, tuned with data and retired when no longer useful. Combined with threat intelligence about the adversaries most likely to target you, it becomes **threat-informed defence**."
     },
     {
-     "type": "flow",
-     "title": "Detection engineering lifecycle",
+     "type": "cycle",
+     "title": "The detection engineering lifecycle",
+     "center": "Detections as code",
+     "caption": "Detections are products with a life: each turn starts from the threats that matter, proves the rule against an emulated attack and ends by tuning or retiring it.",
      "items": [
       {
        "label": "Prioritise",
-       "text": "Pick techniques used by priority threat groups"
+       "text": "Techniques used by priority threat groups"
       },
       {
        "label": "Research",
-       "text": "Understand the behaviour and data needed"
+       "text": "Behaviour and data needed"
       },
       {
        "label": "Build",
-       "text": "Write detection logic as code with tests"
+       "text": "Logic written as code with tests"
       },
       {
        "label": "Validate",
-       "text": "Run emulated attacks; check true and false positives"
+       "text": "Emulated attacks; true and false positives"
       },
       {
        "label": "Deploy",
-       "text": "Release through change control with a runbook"
+       "text": "Change control and a runbook"
       },
       {
-       "label": "Tune and retire",
+       "label": "Tune or retire",
        "text": "Measure precision; improve or remove"
       }
      ]
@@ -1619,6 +2053,56 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Purple-team results by tactic (illustrative)",
+     "caption": "Illustrative results matching the scenario below: 9 of 30 emulated techniques detected at first, 24 after a week of fixes and retests. Reporting by tactic shows where the remaining blind spots are.",
+     "labels": [
+      "Initial access",
+      "Execution",
+      "Persistence",
+      "Priv. escalation",
+      "Lateral movement",
+      "Impact"
+     ],
+     "series": [
+      {
+       "name": "Techniques tested",
+       "values": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+       ]
+      },
+      {
+       "name": "Detected before",
+       "values": [
+        2,
+        1,
+        1,
+        2,
+        1,
+        2
+       ]
+      },
+      {
+       "name": "Detected after retest",
+       "values": [
+        4,
+        4,
+        3,
+        4,
+        4,
+        5
+       ]
+      }
+     ],
+     "yLabel": "Techniques"
+    },
+    {
      "type": "scenario",
      "title": "A wall of green",
      "situation": "A SOC dashboard shows 85% coverage of a public technique matrix because rules exist for most techniques. A purple-team exercise then detects only 9 of 30 emulated techniques used by a priority ransomware group. What should the SOC manager report to the CISO?",
@@ -1710,6 +2194,16 @@ TRACK.modules.push({
        "term": "Validated coverage",
        "def": "The share of priority techniques shown by testing to be detected."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Treat detections as products: designed for specific threats, version-controlled, tested, tuned and retired.",
+      "Validated detection from emulated attacks is the honest measure; rule counts and paper coverage mislead.",
+      "Purple teaming against priority techniques improves detection quickly and shows remaining gaps by tactic.",
+      "Track precision so that noisy rules do not consume analyst time."
      ]
     },
     {
@@ -1861,6 +2355,61 @@ TRACK.modules.push({
      "title": "Severity levels with decision rights"
     },
     {
+     "type": "sequence",
+     "title": "SEV1 escalation with decision rights",
+     "actors": [
+      "SOC analyst",
+      "Incident lead",
+      "Executive on call",
+      "Legal and comms",
+      "Regulator"
+     ],
+     "caption": "The plan names who decides and how fast. Containment that halts revenue needs an accountable executive within minutes, while legal and communications start the notification clock in parallel.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Ransomware heading for payments: SEV1"
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "Open bridge; start decision log"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Isolate payment cluster? Halts payments"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Approved within 30 minutes",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Run isolation playbook"
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Assess notifications; draft statement"
+      },
+      {
+       "from": 3,
+       "to": 4,
+       "label": "Initial notification by the deadline"
+      },
+      {
+       "from": 2,
+       "to": 2,
+       "label": "Convene crisis team if impact grows"
+      }
+     ]
+    },
+    {
      "type": "case",
      "title": "The 2016 central bank payment heist",
      "context": "In February 2016 attackers who had been inside Bangladesh Bank's network for weeks used its SWIFT payment messaging access to send dozens of fraudulent transfer instructions, worth nearly US$1 billion, to the bank's account at the Federal Reserve Bank of New York. Most were blocked, but about US$81 million reached accounts in the Philippines and was largely laundered through casinos; a further US$20 million sent to Sri Lanka was stopped and recovered. Malware had been used to hide transaction confirmations, and the timing exploited weekends and holidays across time zones, delaying detection and cross-border response.",
@@ -1870,6 +2419,38 @@ TRACK.modules.push({
       "What should a payments organisation in South Asia put in place today as a result?"
      ],
      "answer": "Weaknesses included insufficient segmentation and hardening of the payment environment, compromised operator credentials, and no independent, out-of-band reconciliation that would reveal hidden confirmations. Response was slowed by weekend and holiday timing across countries, unclear escalation paths with correspondent banks and the time needed to coordinate legal action. Today a payments organisation should isolate payment systems in a protected zone with phishing-resistant MFA and privileged access controls, reconcile payment messages independently and in near real time, monitor 24x7 including weekends, pre-agree emergency contacts and procedures with correspondent banks and regulators, and exercise payment-fraud playbooks regularly. The industry also strengthened customer security controls for payment messaging in response."
+    },
+    {
+     "type": "timeline",
+     "title": "How timing shaped the 2016 heist",
+     "caption": "Every gap in the timeline is a governance lesson: weekends and holidays in different countries delayed discovery and recall, which is why payment monitoring and correspondent contacts must work round the clock.",
+     "items": [
+      {
+       "when": "Weeks before",
+       "label": "Undetected access",
+       "text": "Attackers study payment operations and obtain operator credentials"
+      },
+      {
+       "when": "4 Feb 2016",
+       "label": "Fraudulent instructions",
+       "text": "Dozens of payment messages worth nearly US$1 billion sent on a Thursday night"
+      },
+      {
+       "when": "5-6 Feb",
+       "label": "Bangladesh weekend",
+       "text": "Malware suppresses confirmations; discovery is delayed"
+      },
+      {
+       "when": "8 Feb",
+       "label": "Holiday in the Philippines",
+       "text": "Recall requests reach receiving banks slowly"
+      },
+      {
+       "when": "Outcome",
+       "label": "About US$81 million lost",
+       "text": "Most transfers blocked; US$20 million sent to Sri Lanka recovered"
+      }
+     ]
     },
     {
      "type": "framework",
@@ -2002,6 +2583,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Most major-incident failures are decision failures; set severity levels, decision rights and deputies in advance.",
+      "Maintain playbooks for the likeliest high-impact incidents and exercise them with the real decision-makers.",
+      "Involve counsel early, preserve evidence with chain of custody and keep a timestamped decision log.",
+      "Use out-of-band channels when attackers may be reading corporate email or chat."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -2121,6 +2712,12 @@ TRACK.modules.push({
      "title": "Most vulnerabilities are never exploited"
     },
     {
+     "type": "callout",
+     "kind": "warning",
+     "title": "Do not depend on a single feed",
+     "text": "Public vulnerability data is less complete than many teams assume. Since 2024 the main US national vulnerability database has carried a large backlog of records awaiting enrichment, and in 2025 the CVE programme itself went through a funding scare. Combine several sources, such as vendor advisories, known-exploited catalogues, EPSS and national CERT alerts, with your own asset context."
+    },
+    {
      "type": "table",
      "head": [
       "Category",
@@ -2152,6 +2749,44 @@ TRACK.modules.push({
      "title": "Example remediation SLAs"
     },
     {
+     "type": "matrix",
+     "title": "Prioritising by exploitation and exposure",
+     "x": "Exploitation evidence (EPSS, known-exploited)",
+     "y": "Asset exposure and criticality",
+     "caption": "The two signals that matter most place a finding in a quadrant, and the quadrant sets the SLA from the table above. CVSS refines the order inside each quadrant; it does not replace these axes.",
+     "quadrants": [
+      {
+       "title": "High: 14 days",
+       "items": [
+        "Internet-facing or crown jewel",
+        "No exploitation seen yet",
+        "Watch for status change"
+       ]
+      },
+      {
+       "title": "Emergency: 72 hours",
+       "items": [
+        "Known exploited on exposed asset",
+        "Patch or mitigate now"
+       ]
+      },
+      {
+       "title": "Low: next cycle",
+       "items": [
+        "Internal, low value",
+        "No exploitation evidence"
+       ]
+      },
+      {
+       "title": "Medium: 30-60 days",
+       "items": [
+        "Exploited elsewhere, internal asset",
+        "Verify reachability and controls"
+       ]
+      }
+     ]
+    },
+    {
      "type": "formula",
      "title": "Vulnerability management metrics",
      "items": [
@@ -2178,20 +2813,22 @@ TRACK.modules.push({
      ]
     },
     {
-     "type": "flow",
-     "title": "Continuous threat exposure management (CTEM) cycle",
+     "type": "cycle",
+     "title": "Continuous threat exposure management (CTEM)",
+     "center": "Exposure falls",
+     "caption": "CTEM is a loop: each cycle rescopes to what matters now and proves that attack paths are really closed before declaring success.",
      "items": [
       {
        "label": "Scope",
-       "text": "Choose attack surfaces that matter to the business"
+       "text": "Attack surfaces that matter to the business"
       },
       {
        "label": "Discover",
-       "text": "Find assets, vulnerabilities, misconfigurations, identity exposures"
+       "text": "Assets, flaws, misconfigurations, identity exposures"
       },
       {
        "label": "Prioritise",
-       "text": "Rank by exploitability, impact and control coverage"
+       "text": "Exploitability, impact, control coverage"
       },
       {
        "label": "Validate",
@@ -2296,12 +2933,22 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "CVSS measures technical severity; exploitation evidence and asset exposure decide priority.",
+      "Set SLAs by category, with a time-limited exception route and verified compensating controls.",
+      "Report risk burn-down and exposure windows, not only ticket counts.",
+      "Run exposure management as a continuous cycle and combine several vulnerability data sources."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
        "q": "Which signal most directly shows a vulnerability is being used by attackers now?",
        "options": [
-        "A CVSS base score of 9.8 assigned at publication",
+        "A CVSS base score of 9.8 assigned when the flaw was first published",
         "Listing on a known-exploited vulnerabilities catalogue",
         "The age of the vulnerability",
         "Vendor name"
@@ -2506,10 +3153,94 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "tree",
+     "title": "One board KRI and the measures beneath it",
+     "caption": "Each level explains the one above: when the board KRI moves, owners can point to the KPI that moved it and the activity that moved the KPI.",
+     "root": {
+      "label": "KRI: critical services restorable within tolerance",
+      "text": "Board, against appetite",
+      "children": [
+       {
+        "label": "KPI: restore tests passed in 90 days",
+        "text": "CISO and service owners",
+        "children": [
+         {
+          "label": "Restore tests run"
+         },
+         {
+          "label": "Business validation completed"
+         }
+        ]
+       },
+       {
+        "label": "KPI: immutable copy coverage",
+        "text": "Infrastructure lead",
+        "children": [
+         {
+          "label": "Systems onboarded to vault"
+         },
+         {
+          "label": "Backup jobs succeeded"
+         }
+        ]
+       },
+       {
+        "label": "KPI: backup admins on phishing-resistant MFA",
+        "text": "IAM lead",
+        "children": [
+         {
+          "label": "Admin accounts reviewed"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
      "type": "callout",
      "kind": "warning",
      "text": "A 'watermelon' dashboard is green outside and red inside: every KPI meets target because targets are too easy, scope excludes difficult systems or the denominator is wrong. A coverage figure of 98% is meaningless if the asset inventory misses a third of the estate. Audit your own metrics before others do.",
      "title": "Watermelon metrics"
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "A KRI trend against its threshold (illustrative)",
+     "unit": "%",
+     "yLabel": "Privileged accounts",
+     "caption": "Illustrative data. The board sees direction and distance to target at a glance: coverage of phishing-resistant MFA for privileged accounts crossed the 90% threshold only in the sixth quarter.",
+     "labels": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6"
+     ],
+     "series": [
+      {
+       "name": "Phishing-resistant MFA coverage",
+       "values": [
+        42,
+        55,
+        63,
+        71,
+        84,
+        92
+       ]
+      },
+      {
+       "name": "Threshold",
+       "values": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+       ]
+      }
+     ]
     },
     {
      "type": "scenario",
@@ -2603,6 +3334,16 @@ TRACK.modules.push({
        "term": "Denominator problem",
        "def": "Errors in the population a metric is measured against, such as an incomplete asset inventory."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Activity metrics manage teams, KPIs drive process improvement and KRIs inform governance against appetite.",
+      "A good metric is decision-linked, clearly defined, owned, targeted, trended and hard to game.",
+      "Check denominators: coverage figures are only as good as the asset inventory behind them.",
+      "Give the board a handful of trended KRIs, each traceable to the KPIs and activities beneath it."
      ]
     },
     {
@@ -2724,7 +3465,7 @@ TRACK.modules.push({
     {
      "type": "callout",
      "kind": "definition",
-     "text": "An **impact tolerance** is the maximum tolerable level of disruption to an important business service, usually expressed as a time limit, such as 'customers can make payments again within 4 hours', sometimes with volume or data limits. Several financial regulators now expect firms to set tolerances and prove they can stay within them in severe but plausible scenarios.",
+     "text": "An **impact tolerance** is the maximum tolerable level of disruption to an important business service, usually expressed as a time limit, such as 'customers can make payments again within 4 hours', sometimes with volume or data limits. Several financial regulators now expect firms to set tolerances and prove they can stay within them in severe but plausible scenarios; UK firms, for example, had to be able to do so by March 2025, and the EU's DORA sets similar resilience-testing expectations.",
      "title": "Impact tolerance"
     },
     {
@@ -2780,6 +3521,38 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "timeline",
+     "title": "Recovery objectives on one clock (illustrative)",
+     "caption": "Illustrative times for a payment service. Data written after the last good copy is lost (the RPO question); the RTO target must land well before the MTPD, leaving margin for detection and decision time.",
+     "items": [
+      {
+       "when": "02:00",
+       "label": "Last good backup",
+       "text": "Recovery point: later data must be re-entered or is lost"
+      },
+      {
+       "when": "05:30",
+       "label": "Disruption starts",
+       "text": "Ransomware encrypts the ledger"
+      },
+      {
+       "when": "06:15",
+       "label": "Detected and declared",
+       "text": "Detection and decision time count against the RTO"
+      },
+      {
+       "when": "09:30",
+       "label": "Service restored",
+       "text": "Within a 4-hour RTO"
+      },
+      {
+       "when": "11:30",
+       "label": "MTPD reached",
+       "text": "Beyond 6 hours, impact becomes intolerable"
+      }
+     ]
+    },
+    {
      "type": "steps",
      "title": "Running a business impact analysis (BIA)",
      "items": [
@@ -2808,6 +3581,61 @@ TRACK.modules.push({
        "text": "Business owners sign off; compare with current capability to find gaps."
       }
      ]
+    },
+    {
+     "type": "tree",
+     "title": "Dependency map for one important service",
+     "caption": "The service can recover no faster than its slowest dependency. Identity services, SMS gateways and the people who run recovery are the dependencies most often missing from plans.",
+     "root": {
+      "label": "Mobile payments",
+      "text": "MTPD 6 h; MBCO: cash-out and balance checks",
+      "children": [
+       {
+        "label": "People",
+        "children": [
+         {
+          "label": "Payments operations"
+         },
+         {
+          "label": "On-call engineers"
+         }
+        ]
+       },
+       {
+        "label": "Technology",
+        "children": [
+         {
+          "label": "App and API"
+         },
+         {
+          "label": "Core ledger database"
+         },
+         {
+          "label": "Identity service"
+         }
+        ]
+       },
+       {
+        "label": "Third parties",
+        "children": [
+         {
+          "label": "SMS gateway"
+         },
+         {
+          "label": "Cloud hosting"
+         }
+        ]
+       },
+       {
+        "label": "Facilities",
+        "children": [
+         {
+          "label": "Primary data centre"
+         }
+        ]
+       }
+      ]
+     }
     },
     {
      "type": "template",
@@ -2901,6 +3729,16 @@ TRACK.modules.push({
        "term": "MBCO",
        "def": "Minimum business continuity objective: the minimum acceptable service level during disruption."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Operational resilience starts from important business services seen by customers, not from systems or departments.",
+      "Set impact tolerances, then derive RTO, RPO and MBCO that are consistent with them (RTO shorter than MTPD).",
+      "Map people, technology, facilities and third parties; a service cannot recover faster than what it depends on.",
+      "Show owners the gap between objectives and real capability so they can fund it or accept it."
      ]
     },
     {
@@ -3071,6 +3909,122 @@ TRACK.modules.push({
      "title": "Protecting the backup system itself"
     },
     {
+     "type": "topology",
+     "title": "A ransomware-resistant backup design",
+     "caption": "Stolen domain admin rights reach production but not the backups: the backup zone is outside the domain, run by separate MFA-protected identities, and holds immutable and offline copies.",
+     "nodes": [
+      {
+       "id": "att",
+       "kind": "attacker",
+       "label": "Attacker",
+       "sub": "Holds domain admin",
+       "x": 3,
+       "y": 0
+      },
+      {
+       "id": "dir",
+       "kind": "server",
+       "label": "Directory",
+       "sub": "Production domain",
+       "x": 0,
+       "y": 1
+      },
+      {
+       "id": "prod",
+       "kind": "server",
+       "label": "Prod servers",
+       "sub": "Domain-joined",
+       "x": 6,
+       "y": 1
+      },
+      {
+       "id": "bkp",
+       "kind": "server",
+       "label": "Backup server",
+       "sub": "Not domain-joined",
+       "x": 3,
+       "y": 3
+      },
+      {
+       "id": "adm",
+       "kind": "user",
+       "label": "Backup admin",
+       "sub": "Separate identity, FIDO2",
+       "x": 6,
+       "y": 4
+      },
+      {
+       "id": "imm",
+       "kind": "storage",
+       "label": "Immutable store",
+       "sub": "Object lock, 30 days",
+       "x": 1,
+       "y": 5
+      },
+      {
+       "id": "off",
+       "kind": "storage",
+       "label": "Offline copy",
+       "sub": "Off-site, disconnected",
+       "x": 4,
+       "y": 6
+      }
+     ],
+     "zones": [
+      {
+       "label": "Production domain",
+       "x": 0,
+       "y": 1,
+       "w": 7,
+       "h": 1,
+       "tone": "neutral"
+      },
+      {
+       "label": "Isolated backup zone",
+       "x": 1,
+       "y": 3,
+       "w": 6,
+       "h": 4,
+       "tone": "good"
+      }
+     ],
+     "links": [
+      {
+       "a": "att",
+       "b": "dir",
+       "style": "attack",
+       "label": "admin rights"
+      },
+      {
+       "a": "att",
+       "b": "prod",
+       "style": "attack",
+       "label": "encrypts"
+      },
+      {
+       "a": "prod",
+       "b": "bkp",
+       "label": "backup traffic only"
+      },
+      {
+       "a": "adm",
+       "b": "bkp",
+       "label": "MFA"
+      },
+      {
+       "a": "bkp",
+       "b": "imm",
+       "label": "write once"
+      },
+      {
+       "a": "bkp",
+       "b": "off",
+       "style": "dashed",
+       "label": "weekly"
+      }
+     ]
+    },
+    {
      "type": "formula",
      "title": "Estimating real recovery time",
      "items": [
@@ -3228,6 +4182,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Match DR strategy to tolerance and cost: backup and restore, pilot light, warm standby or active-active.",
+      "Replication copies corruption and encryption; keep isolated, immutable, point-in-time copies (3-2-1-1-0).",
+      "Protect the backup system itself with separate identities, its own zone and alerts on deletion.",
+      "Real recovery time includes detection, decision and validation; prove it with restore tests."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -3373,6 +4337,67 @@ TRACK.modules.push({
      "kind": "pro",
      "text": "Crises punish both paralysis and overconfidence. Record what you knew when you decided. Regulators and courts judge whether decisions were reasonable at the time, not with hindsight, and a clear decision log is the best defence.",
      "title": "Decide with the facts you have"
+    },
+    {
+     "type": "sequence",
+     "title": "From incident to crisis: the first hours",
+     "actors": [
+      "Incident lead",
+      "Crisis manager",
+      "CEO (gold)",
+      "Comms lead",
+      "Regulator"
+     ],
+     "caption": "Technical response continues underneath while gold sets objectives and approves what the organisation says. Every decision and message has an owner and a next-update time.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Incident meets crisis criteria"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Convene crisis team within the hour"
+      },
+      {
+       "from": 2,
+       "to": 2,
+       "label": "Set objectives: safety, service, trust"
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "label": "Holding statement for approval"
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "Approved; publish with next update time",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 4,
+       "label": "Formal notification by the deadline"
+      },
+      {
+       "from": 4,
+       "to": 1,
+       "label": "Request for further information",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Hourly situation report"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Decision paper: restore or rebuild?"
+      }
+     ]
     },
     {
      "type": "table",
@@ -3522,6 +4547,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "A crisis threatens strategy, reputation or people and needs executive decisions; technical response continues beneath it.",
+      "Gold sets objectives and approves statements, silver coordinates, bronze executes.",
+      "Decide with the facts available, record why and set a time to revisit.",
+      "Communicate early and honestly with a holding statement; never claim 'no data affected' before it is confirmed."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -3613,8 +4648,52 @@ TRACK.modules.push({
     {
      "type": "callout",
      "kind": "warning",
-     "text": "Boards should agree in advance who decides, which advisers must be consulted, and the conditions under which the organisation would never pay, for example sanctions or no proof of decryption. This is not legal advice; laws on ransom payments differ by country and are changing, so take qualified advice before any incident.",
+     "text": "Boards should agree in advance who decides, which advisers must be consulted, and the conditions under which the organisation would never pay, for example sanctions or no proof of decryption. This is not legal advice; laws on ransom payments differ by country and are changing (some countries now require payments to be reported, Australia since May 2025 for example, and others have moved to ban payments by public bodies and critical infrastructure operators), so take qualified advice before any incident.",
      "title": "Decide the policy, not the payment, in peacetime"
+    },
+    {
+     "type": "tree",
+     "title": "A pre-agreed extortion decision path",
+     "caption": "A simplified example of what a board might approve in peacetime, not legal advice. Where backups work and restore within tolerance, the path ends without engaging the attackers at all.",
+     "root": {
+      "label": "Extortion demand received",
+      "text": "Apply the board-approved policy",
+      "children": [
+       {
+        "label": "Legal or sanctions bar",
+        "text": "Counsel confirms payment is prohibited",
+        "children": [
+         {
+          "label": "Do not pay; recover and report"
+         }
+        ]
+       },
+       {
+        "label": "No legal bar",
+        "text": "Assess recovery without paying",
+        "children": [
+         {
+          "label": "Recovery within tolerance",
+          "text": "Backups verified, restore time acceptable",
+          "children": [
+           {
+            "label": "Recover; do not engage"
+           }
+          ]
+         },
+         {
+          "label": "Recovery beyond tolerance",
+          "text": "Safety or survival at stake",
+          "children": [
+           {
+            "label": "Board decides with counsel, insurer, police"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
     },
     {
      "type": "steps",
@@ -3687,8 +4766,10 @@ TRACK.modules.push({
      "answer": "First decisions: activate the crisis team and clinical downtime procedures to protect patient safety (including diverting emergency cases if needed); isolate networks and preserve evidence while engaging forensic and legal advisers; and start the notification assessment for regulators, law enforcement and the national CIRT. The extortion demand should be handled under a pre-agreed policy: verify claims, check sanctions and legal constraints, assess whether backups are usable and how long recovery would take, involve the insurer and counsel, and avoid any commitment until facts are clear; payment does not guarantee data deletion. In the next 90 days: isolate and make backups immutable with separate admin identities, test full EHR restoration, segment clinical networks, enforce phishing-resistant MFA for admins and remote access, and exercise the crisis plan with executives before the next holiday period."
     },
     {
-     "type": "flow",
+     "type": "cycle",
      "title": "From lesson to improvement",
+     "center": "Risk committee tracks",
+     "caption": "If the loop is broken at 'assign' or 'verify', the same finding returns every year; the risk committee's tracking keeps it turning.",
      "items": [
       {
        "label": "Capture",
@@ -3700,11 +4781,11 @@ TRACK.modules.push({
       },
       {
        "label": "Assign",
-       "text": "Actions with owners, dates and budget"
+       "text": "Owners, dates and budget"
       },
       {
        "label": "Track",
-       "text": "Report progress to the risk committee"
+       "text": "Progress reported to the risk committee"
       },
       {
        "label": "Verify",
@@ -3774,6 +4855,16 @@ TRACK.modules.push({
        "term": "Clinical downtime procedures",
        "def": "Manual processes that allow healthcare to continue safely when clinical systems are unavailable."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Set the extortion policy, decision rights and advisers in peacetime, with legal advice.",
+      "Paying does not guarantee working decryption or deletion of stolen data, and some countries now regulate payments.",
+      "Effective tabletops use real decision-makers, realistic injects and tracked actions.",
+      "A finding that repeats every year means the improvement loop is broken; escalate and verify."
      ]
     },
     {
@@ -3883,7 +4974,7 @@ TRACK.modules.push({
        "Security of processing, DPIAs, 72-hour breach notification, fines up to 4% of global turnover"
       ],
       [
-       "EU NIS2 Directive (national laws from late 2024)",
+       "EU NIS2 Directive (transposition deadline October 2024; several national laws arrived late)",
        "Essential and important entities in many sectors",
        "Risk-management measures, management body approval and training, staged incident reporting (24 h, 72 h, one month)"
       ],
@@ -3893,6 +4984,16 @@ TRACK.modules.push({
        "ICT risk framework, incident reporting, resilience testing, third-party register and contracts"
       ],
       [
+       "EU Cyber Resilience Act (in force December 2024)",
+       "Manufacturers, importers and distributors of products with digital elements sold in the EU",
+       "Secure-by-design requirements, SBOM and vulnerability handling for the support period; exploited-vulnerability and incident reporting from September 2026; full application December 2027"
+      ],
+      [
+       "EU AI Act (in force August 2024, phased)",
+       "Providers and deployers of AI systems placed on or used in the EU market",
+       "Prohibited practices banned since February 2025; duties for general-purpose models since August 2025; high-risk obligations phased in later, with timing under review, so check the current timetable"
+      ],
+      [
        "US SEC cyber disclosure rules (2023)",
        "US-listed companies",
        "Disclose material incidents within four business days of determining materiality; annual disclosure of risk management and governance"
@@ -3900,15 +5001,67 @@ TRACK.modules.push({
       [
        "PCI DSS v4.x",
        "Organisations storing, processing or transmitting payment card data",
-       "Prescriptive controls; future-dated requirements mandatory since March 2025"
+       "Prescriptive controls (v4.0.1 current); future-dated requirements mandatory since March 2025"
       ],
       [
        "India DPDP Act 2023",
        "Organisations processing digital personal data in India",
-       "Consent and notice, data fiduciary duties, breach reporting, phased rules"
+       "Consent and notice, data fiduciary duties, breach reporting; rules notified in late 2025 and phased in"
       ]
      ],
      "title": "Selected international regimes (simplified)"
+    },
+    {
+     "type": "timeline",
+     "title": "Key dates in cyber and data regulation",
+     "caption": "Obligations arrive in waves; a regime 'in force' often applies in stages. Keep this view in the obligations register and recheck future dates against official sources.",
+     "items": [
+      {
+       "when": "May 2018",
+       "label": "GDPR applies",
+       "text": "72-hour breach notification"
+      },
+      {
+       "when": "Dec 2023",
+       "label": "SEC disclosure rules",
+       "text": "Material incidents disclosed within four business days of determination"
+      },
+      {
+       "when": "Aug 2024",
+       "label": "EU AI Act in force",
+       "text": "Obligations phased from 2025"
+      },
+      {
+       "when": "Oct 2024",
+       "label": "NIS2 transposition deadline",
+       "text": "National laws, several late"
+      },
+      {
+       "when": "Dec 2024",
+       "label": "Cyber Resilience Act in force",
+       "text": "Product security obligations phased in"
+      },
+      {
+       "when": "Jan 2025",
+       "label": "DORA applies",
+       "text": "EU financial entities and ICT providers"
+      },
+      {
+       "when": "Mar 2025",
+       "label": "PCI DSS v4 fully effective",
+       "text": "Future-dated requirements mandatory"
+      },
+      {
+       "when": "Sep 2026",
+       "label": "CRA reporting starts",
+       "text": "Actively exploited vulnerabilities and severe incidents"
+      },
+      {
+       "when": "Dec 2027",
+       "label": "CRA fully applies",
+       "text": "Essential requirements and conformity assessment"
+      }
+     ]
     },
     {
      "type": "keypoints",
@@ -3921,6 +5074,54 @@ TRACK.modules.push({
       "Evidence: documentation that demonstrates compliance on request"
      ],
      "title": "Themes that recur across regimes"
+    },
+    {
+     "type": "sequence",
+     "title": "NIS2-style staged incident reporting",
+     "actors": [
+      "Entity",
+      "CSIRT or authority",
+      "Service recipients"
+     ],
+     "caption": "Reporting is staged so that authorities hear early and learn more as facts firm up. National laws set the detail; the early warning comes before you know everything.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 0,
+       "label": "Aware of a significant incident"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Early warning within 24 hours"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Incident notification within 72 hours"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Guidance; request for updates",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 2,
+       "label": "Inform affected recipients where needed"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Intermediate report on request"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Final report within one month"
+      }
+     ]
     },
     {
      "type": "callout",
@@ -4058,6 +5259,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Know which regimes apply by country, customers, sector and listing, and when to call counsel.",
+      "Common themes: management accountability, risk-based measures, staged incident reporting, supplier oversight and testing.",
+      "Product and AI rules (the Cyber Resilience Act and AI Act) now sit beside organisational rules such as NIS2 and DORA.",
+      "An obligations register links each obligation to controls, owners and evidence, and tracks changes."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -4114,6 +5325,17 @@ TRACK.modules.push({
        ],
        "answer": 1,
        "explain": "Regulators increasingly expect boards to approve and oversee cyber risk measures."
+      },
+      {
+       "q": "A Dhaka company sells a connected industrial sensor into the EU. Which EU law most directly sets security requirements for the product itself?",
+       "options": [
+        "NIS2, because it covers every company that sells into the EU market",
+        "The Cyber Resilience Act",
+        "DORA, because sensors may be used by banks",
+        "GDPR, because the sensor might collect personal data in some deployments"
+       ],
+       "answer": 1,
+       "explain": "The Cyber Resilience Act applies to products with digital elements placed on the EU market, including from foreign manufacturers. NIS2 and DORA regulate organisations; GDPR governs personal data processing."
       }
      ]
     }
@@ -4141,28 +5363,39 @@ TRACK.modules.push({
      "text": "Bangladesh's digital economy has grown rapidly: mobile financial services, e-commerce, garment-sector digitisation, digital government services and a large IT exports sector. Its legal framework has evolved alongside, moving from early electronic transactions law to broader cyber security statutes, and more recently towards personal data protection. Security leaders need to understand the direction of travel, the authorities involved and how sector regulators such as the central bank set detailed expectations."
     },
     {
-     "type": "flow",
+     "type": "timeline",
      "title": "How the main cyber statutes have evolved (simplified)",
+     "caption": "Each step replaced or reshaped the one before, and the most recent instruments were ordinances made without a sitting Parliament. Always confirm which texts are currently in force.",
      "items": [
       {
-       "label": "2006: ICT Act",
-       "text": "Recognised electronic records and digital signatures; created computer offences and a certifying authority regime; later amended"
+       "when": "2006",
+       "label": "ICT Act",
+       "text": "Electronic records, digital signatures, early computer offences; later amended"
       },
       {
-       "label": "2018: Digital Security Act",
-       "text": "Replaced the ICT Act's offence provisions; created a national digital security agency and the concept of critical information infrastructure; widely criticised for speech-related offences"
+       "when": "2018",
+       "label": "Digital Security Act",
+       "text": "National agency and critical information infrastructure; speech offences widely criticised"
       },
       {
-       "label": "2023: Cyber Security Act",
-       "text": "Replaced the 2018 Act, keeping much of its structure while changing some penalties; the agency continued as the National Cyber Security Agency"
+       "when": "2023",
+       "label": "Cyber Security Act",
+       "text": "Replaced the 2018 Act with much of its structure; National Cyber Security Agency continued"
       },
       {
-       "label": "2025: Cyber protection ordinance",
-       "text": "The interim government replaced the 2023 Act, revising offences, notably removing several speech-related provisions, while retaining cyber crime and infrastructure protections"
+       "when": "2025",
+       "label": "Cyber security ordinance",
+       "text": "Replaced the 2023 Act, removing several speech-related offences"
       },
       {
-       "label": "2025 onward: Personal data protection",
-       "text": "After years of drafts, a personal data protection ordinance was approved; commencement, rules and regulator guidance should be checked"
+       "when": "2025",
+       "label": "Personal data protection",
+       "text": "An ordinance approved after years of drafts; commencement and rules to be checked"
+      },
+      {
+       "when": "2026 onward",
+       "label": "Parliamentary review",
+       "text": "Ordinances go before the new Parliament, which may enact, amend or let them lapse"
       }
      ]
     },
@@ -4227,7 +5460,7 @@ TRACK.modules.push({
      "items": [
       {
        "title": "Track the law actively",
-       "text": "Assign legal counsel to monitor gazette notifications, ordinances and rules; brief the risk committee on changes."
+       "text": "Assign legal counsel to monitor gazette notifications, ordinances, Acts of Parliament and rules, including whether the 2025 ordinances have been enacted, amended or lapsed; brief the risk committee on changes."
       },
       {
        "title": "Check CII status",
@@ -4327,6 +5560,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Bangladesh's cyber law moved from the ICT Act through the 2018 and 2023 Acts to 2025 ordinances, and may change again.",
+      "Sector rules, especially Bangladesh Bank's ICT security guidelines and circulars, drive most day-to-day requirements.",
+      "Prepare for personal data duties by designing to shared principles rather than to draft wording.",
+      "Handle law-enforcement requests through verification, written legal basis and counsel review."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -4421,6 +5664,43 @@ TRACK.modules.push({
         "Did the control actually operate consistently over the period?",
         "Tested by sampling evidence across the period",
         "Example: 25 sampled reviews were completed on time and revocations happened"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "matrix",
+     "title": "Reading design and operating test results together",
+     "x": "Operating effectiveness",
+     "y": "Design effectiveness",
+     "caption": "Only the top-right quadrant gives assurance. The bottom-right is the dangerous one: a control that runs faithfully but was never designed to address the risk gives false comfort.",
+     "quadrants": [
+      {
+       "title": "Well designed, not operating",
+       "items": [
+        "Procedure exists but is skipped",
+        "Fix discipline and evidence"
+       ]
+      },
+      {
+       "title": "Effective",
+       "items": [
+        "Designed for the risk",
+        "Operated across the period",
+        "Can be relied on"
+       ]
+      },
+      {
+       "title": "Ineffective",
+       "items": [
+        "Redesign and rebuild"
+       ]
+      },
+      {
+       "title": "Operating, poorly designed",
+       "items": [
+        "Runs every month, misses the risk",
+        "False comfort: redesign"
        ]
       }
      ]
@@ -4534,6 +5814,61 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "sequence",
+     "title": "The life of an audit finding",
+     "actors": [
+      "Audit committee",
+      "Internal audit",
+      "Control owner",
+      "CISO"
+     ],
+     "caption": "The owner, not the CISO, answers for the control. Facts are agreed before the report, and the committee tracks actions until audit has verified them.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Approve risk-based audit plan"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Request evidence for 25 samples"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Evidence from repository",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Draft finding: condition, criteria, cause"
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "Agree realistic action and date"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Management response",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Report finding and action plan"
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "Verify closure before reporting it closed"
+      }
+     ]
+    },
+    {
      "type": "text",
      "text": "**Continuous controls monitoring (CCM)** automates testing of controls using data from systems: for example, checking daily that all privileged accounts use phishing-resistant MFA, that backups completed and were immutable, or that no public storage exists in cloud accounts. CCM turns annual sampling into continuous evidence, catches failures quickly and lets auditors rely on automated results after testing the monitoring itself."
     },
@@ -4615,6 +5950,16 @@ TRACK.modules.push({
        "term": "Audit committee",
        "def": "A board committee that oversees financial reporting, internal control and audit, often including cyber risk."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Design effectiveness asks whether a control would work; operating effectiveness asks whether it did, across the period.",
+      "Weak IT general controls undermine every automated control that depends on them.",
+      "A useful finding states condition, criteria, cause, consequence and corrective action.",
+      "Continuous controls monitoring turns annual samples into ongoing evidence and earlier warnings."
      ]
     },
     {
@@ -4836,6 +6181,45 @@ TRACK.modules.push({
      "title": "Budget for running costs, not just projects"
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "A three-year budget in run, grow and transform (illustrative)",
+     "unit": " cr",
+     "yLabel": "BDT crore",
+     "caption": "Illustrative figures. As projects finish, their running costs move into 'run', so a credible plan shows run rising even when the total is flat; hiding that shift is how tools end up unstaffed.",
+     "labels": [
+      "Year 1",
+      "Year 2",
+      "Year 3"
+     ],
+     "series": [
+      {
+       "name": "Run",
+       "values": [
+        12,
+        15,
+        18
+       ]
+      },
+      {
+       "name": "Grow",
+       "values": [
+        8,
+        6,
+        4
+       ]
+      },
+      {
+       "name": "Transform",
+       "values": [
+        4,
+        4,
+        3
+       ]
+      }
+     ]
+    },
+    {
      "type": "template",
      "title": "Board decision paper",
      "purpose": "Present a cyber risk decision to the board concisely with options and a recommendation.",
@@ -4934,6 +6318,16 @@ TRACK.modules.push({
        "term": "Escalation criteria",
        "def": "Pre-agreed conditions under which incidents or risks must be reported to senior leaders or the board."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Board reports show position against appetite, top risks, a few KRIs, events and the decisions needed.",
+      "Risk-based budgets tie spending to closing tolerance gaps; peer benchmarks are context, not targets.",
+      "Count total cost of ownership, including the people who run the tools.",
+      "Agree escalation criteria so the board hears about material incidents within hours, never from the media."
      ]
     },
     {
@@ -5088,6 +6482,48 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "tree",
+     "title": "A hybrid security operating model with BISOs",
+     "caption": "Shared capabilities stay central for consistency and scale, while BISOs sit inside the major business units, translating risk into their language and bringing their priorities back.",
+     "root": {
+      "label": "CISO",
+      "text": "Strategy, appetite, board reporting",
+      "children": [
+       {
+        "label": "Architecture",
+        "text": "Patterns, standards, reviews"
+       },
+       {
+        "label": "Security operations",
+        "text": "Hybrid SOC, detection, response"
+       },
+       {
+        "label": "GRC and assurance",
+        "text": "Policy, risk, controls, regulation"
+       },
+       {
+        "label": "Identity",
+        "text": "IGA, PAM, authentication"
+       },
+       {
+        "label": "BISOs",
+        "text": "Embedded in business units",
+        "children": [
+         {
+          "label": "Retail banking"
+         },
+         {
+          "label": "Corporate banking"
+         },
+         {
+          "label": "Digital channels"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
      "type": "framework",
      "title": "People and culture levers",
      "items": [
@@ -5139,7 +6575,7 @@ TRACK.modules.push({
       [
        "Next (6 to 18 months)",
        "Build core capabilities",
-       "Per-application access; data classification; tiered TPRM; hybrid SOC; BIA and recovery tests"
+       "Per-application access; data classification; tiered TPRM; hybrid SOC; BIA and recovery tests; approved AI tools and AI use rules"
       ],
       [
        "Later (18 to 36 months)",
@@ -5148,6 +6584,28 @@ TRACK.modules.push({
       ]
      ],
      "title": "A three-horizon roadmap example"
+    },
+    {
+     "type": "timeline",
+     "title": "Roadmap horizons",
+     "caption": "Each horizon earns the credibility and funding for the next: visible risk reduction first, then core capabilities, then optimisation and quantification.",
+     "items": [
+      {
+       "when": "0-6 months",
+       "label": "Now",
+       "text": "Close critical exposures; approve appetite and obligations register"
+      },
+      {
+       "when": "6-18 months",
+       "label": "Next",
+       "text": "Per-application access, tiered TPRM, hybrid SOC, BIA and recovery tests"
+      },
+      {
+       "when": "18-36 months",
+       "label": "Later",
+       "text": "Micro-segmentation, CTEM, post-quantum inventory, risk-based budgeting"
+      }
+     ]
     },
     {
      "type": "steps",
@@ -5291,6 +6749,16 @@ TRACK.modules.push({
        "term": "Capstone",
        "def": "The final ZCSTG project in which learners design and defend a complete security strategy and governance programme."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Write strategy on a page in business language, linked to outcomes and measures.",
+      "Put responsibility where knowledge and authority sit; hybrid models with BISOs balance consistency and closeness.",
+      "Sustain people with clear careers, sane rotas, champions and psychological safety.",
+      "In scenario questions, look for the governance gap, respect authority and prefer evidence over assertion."
      ]
     },
     {

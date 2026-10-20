@@ -154,6 +154,55 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "tree",
+     "title": "A typical cyber governance structure",
+     "caption": "Notice the two independent routes to the board: risk oversight through the risk committee and assurance through the audit committee, both separate from the executive line that owns and runs the risk.",
+     "root": {
+      "label": "Board of directors",
+      "text": "Oversees cyber risk; sets appetite",
+      "children": [
+       {
+        "label": "Risk committee",
+        "text": "Approves appetite; reviews top risks",
+        "children": [
+         {
+          "label": "CRO and risk function",
+          "text": "Second line: framework and challenge"
+         }
+        ]
+       },
+       {
+        "label": "Audit committee",
+        "text": "Receives independent assurance",
+        "children": [
+         {
+          "label": "Internal audit",
+          "text": "Third line: risk-based cyber audits"
+         }
+        ]
+       },
+       {
+        "label": "CEO and executive committee",
+        "text": "Delivers within appetite",
+        "children": [
+         {
+          "label": "Business service owners",
+          "text": "First line: accountable risk owners"
+         },
+         {
+          "label": "CISO",
+          "text": "Designs and runs the programme"
+         },
+         {
+          "label": "CIO / CTO",
+          "text": "Runs technology and many controls"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
      "type": "table",
      "head": [
       "Reporting line",
@@ -275,6 +324,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Governance directs and oversees, management plans and runs, operations execute; keep the three distinct.",
+      "Every top risk has one accountable owner with authority over its budget and downtime, usually a business leader rather than the CISO.",
+      "The three lines work only when the first line owns risk, the second challenges and the third assures independently.",
+      "Unfiltered, regular access to the board matters more than where the CISO sits on the organisation chart."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -352,6 +411,33 @@ TRACK.modules.push({
      "text": "The **NIST Cybersecurity Framework (CSF) 2.0**, published in February 2024 by the US National Institute of Standards and Technology, is a voluntary, outcome-based framework. It does not tell you which products to buy or exactly how to configure them. It describes **outcomes** an organisation should achieve, organised so that executives, engineers and auditors can talk about the same thing. Version 2.0 widened the scope beyond critical infrastructure to every organisation and added a sixth function, **Govern**."
     },
     {
+     "type": "timeline",
+     "title": "How the NIST CSF evolved",
+     "caption": "Each version widened the audience; 2.0 is the first written for every organisation and the first to make governance a function of its own.",
+     "items": [
+      {
+       "when": "2014",
+       "label": "CSF 1.0",
+       "text": "Voluntary framework aimed at US critical infrastructure"
+      },
+      {
+       "when": "2018",
+       "label": "CSF 1.1",
+       "text": "Added supply-chain risk and self-assessment guidance"
+      },
+      {
+       "when": "Feb 2024",
+       "label": "CSF 2.0",
+       "text": "Govern function added; scope widened to all organisations"
+      },
+      {
+       "when": "Ongoing",
+       "label": "Supporting resources",
+       "text": "Quick-start guides, community profiles and online mappings keep being added"
+      }
+     ]
+    },
+    {
      "type": "framework",
      "title": "The six functions in plain words",
      "items": [
@@ -384,6 +470,34 @@ TRACK.modules.push({
        "label": "RC",
        "title": "Recover",
        "text": "Restore assets and operations affected by an incident and communicate during recovery."
+      }
+     ]
+    },
+    {
+     "type": "cycle",
+     "title": "The CSF 2.0 functions",
+     "center": "Govern",
+     "caption": "Govern sits in the centre because it shapes how the other five are prioritised and funded; the outer functions run continuously and in parallel, not as a one-way sequence.",
+     "items": [
+      {
+       "label": "Identify",
+       "text": "Know assets, risks and improvement needs"
+      },
+      {
+       "label": "Protect",
+       "text": "Safeguards for identity, data and platforms"
+      },
+      {
+       "label": "Detect",
+       "text": "Find and analyse possible attacks"
+      },
+      {
+       "label": "Respond",
+       "text": "Act on detected incidents"
+      },
+      {
+       "label": "Recover",
+       "text": "Restore assets and operations"
       }
      ]
     },
@@ -609,6 +723,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "CSF 2.0 describes outcomes, not products, across six functions with Govern at the centre.",
+      "Current and target organisational profiles turn the framework into a prioritised, owned gap plan.",
+      "Tiers describe the rigour of risk practices; pick a target that fits risk and resources, not the maximum.",
+      "Community profiles and informative references let you start from a sector baseline and reuse mappings."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -683,27 +807,61 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "**ISO/IEC 27001** specifies requirements for an **information security management system (ISMS)**: a set of policies, processes, roles and controls that an organisation uses to manage information security risk and to improve continually. Unlike CSF, it is **certifiable**: an accredited certification body can audit you and issue a certificate for a defined scope. The 2022 edition reorganised its control annex; certificates against the older 2013 edition had to transition by 31 October 2025."
+     "text": "**ISO/IEC 27001** specifies requirements for an **information security management system (ISMS)**: a set of policies, processes, roles and controls that an organisation uses to manage information security risk and to improve continually. Unlike CSF, it is **certifiable**: an accredited certification body can audit you and issue a certificate for a defined scope. The 2022 edition reorganised its control annex. The transition period for certificates against the older 2013 edition ended on 31 October 2025, so a certificate that still cites the 2013 edition is no longer valid. A 2024 amendment also asks organisations to consider whether climate change is a relevant issue when setting the context of the ISMS."
     },
     {
-     "type": "flow",
-     "title": "The ISMS as a management cycle",
+     "type": "cycle",
+     "title": "The ISMS as a Plan-Do-Check-Act cycle",
+     "center": "ISMS",
+     "caption": "Clauses 4 to 10 map onto the loop: plan (4 to 7), operate (8), evaluate (9) and improve (10). Certification auditors look for evidence that the loop has turned at least once.",
      "items": [
       {
        "label": "Plan",
-       "text": "Context, scope, leadership, risk assessment and treatment plan"
+       "text": "Context, scope, leadership, risk assessment and treatment plan (clauses 4 to 7)"
       },
       {
        "label": "Do",
-       "text": "Implement controls, train people, operate processes"
+       "text": "Implement controls, train people, operate processes (clause 8)"
       },
       {
        "label": "Check",
-       "text": "Monitor, measure, internal audit, management review"
+       "text": "Monitor, measure, internal audit, management review (clause 9)"
       },
       {
        "label": "Act",
-       "text": "Correct nonconformities and improve continually"
+       "text": "Correct nonconformities and improve continually (clause 10)"
+      }
+     ]
+    },
+    {
+     "type": "timeline",
+     "title": "ISO/IEC 27001 editions and transition",
+     "caption": "When you rely on a certificate, check which edition it cites and its validity dates; 2013-edition certificates lapsed when the transition ended.",
+     "items": [
+      {
+       "when": "2005",
+       "label": "First edition",
+       "text": "Grew out of the British standard BS 7799-2"
+      },
+      {
+       "when": "2013",
+       "label": "Second edition",
+       "text": "114 Annex A controls in 14 domains"
+      },
+      {
+       "when": "Oct 2022",
+       "label": "Third edition",
+       "text": "93 controls regrouped into four themes"
+      },
+      {
+       "when": "2024",
+       "label": "Amendment 1",
+       "text": "Climate change added to context clauses 4.1 and 4.2"
+      },
+      {
+       "when": "31 Oct 2025",
+       "label": "Transition ends",
+       "text": "2013-edition certificates no longer valid"
       }
      ]
     },
@@ -918,6 +1076,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "ISO/IEC 27001 is a certifiable management system; its value depends on a scope that covers what customers rely on.",
+      "The Statement of Applicability links risk treatment to the 93 Annex A controls, with a reason for every inclusion and exclusion.",
+      "Certification needs evidence that the PDCA loop has run: operating controls, internal audit and management review.",
+      "Since November 2025 only certificates against the 2022 edition are valid."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -974,6 +1142,17 @@ TRACK.modules.push({
        ],
        "answer": 1,
        "explain": "A certificate is only meaningful for its scope; many failures come from relying on narrow scopes."
+      },
+      {
+       "q": "In 2026 a supplier offers an ISO/IEC 27001:2013 certificate as evidence for a service you are buying. What should you conclude?",
+       "options": [
+        "It is acceptable, because the 2013 and 2022 editions are interchangeable for procurement purposes",
+        "It is acceptable if it was issued within the last three years",
+        "Do not rely on it; ask for a current 2022-edition certificate covering the service",
+        "It proves the supplier has implemented all 93 controls"
+       ],
+       "answer": 2,
+       "explain": "Certificates against the 2013 edition ceased to be valid when the transition period ended on 31 October 2025. Ask for a current certificate and check that its scope covers the service."
       }
      ]
     }
@@ -1058,7 +1237,7 @@ TRACK.modules.push({
        "Penetration testing"
       ]
      ],
-     "title": "The 18 CIS Controls (version 8.1, in short)"
+     "title": "The 18 CIS Controls (version 8.1, in short; check for later revisions)"
     },
     {
      "type": "compare",
@@ -1090,6 +1269,28 @@ TRACK.modules.push({
        ]
       }
      ]
+    },
+    {
+     "type": "chart",
+     "kind": "bar",
+     "title": "CIS safeguards covered by each implementation group",
+     "caption": "The groups are cumulative: IG1's 56 safeguards are the hygiene floor, IG2 brings the total to 130 and IG3 covers all 153 (version 8.1 counts).",
+     "labels": [
+      "IG1",
+      "IG2",
+      "IG3"
+     ],
+     "series": [
+      {
+       "name": "Safeguards (cumulative)",
+       "values": [
+        56,
+        130,
+        153
+       ]
+      }
+     ],
+     "yLabel": "Safeguards"
     },
     {
      "type": "callout",
@@ -1204,6 +1405,12 @@ TRACK.modules.push({
      "title": "Which framework for which question?"
     },
     {
+     "type": "callout",
+     "kind": "pro",
+     "title": "Frameworks for AI risk",
+     "text": "As AI tools and models enter the business, two references are now commonly added to the framework set: **ISO/IEC 42001:2023**, a certifiable AI management system standard that uses the same clause structure as ISO/IEC 27001, and the **NIST AI Risk Management Framework** (AI RMF 1.0, 2023) with its Govern, Map, Measure and Manage functions. Treat them as extensions of the governance you already run, mapped into the same control library, not as a separate silo."
+    },
+    {
      "type": "scenario",
      "title": "Framework choice for a bank subsidiary",
      "situation": "The IT subsidiary of a Bangladeshi commercial bank already holds ISO/IEC 27001 certification for its data centre. The parent board now complains that it cannot see how IT investment, IT risk and security decisions connect to business goals, and internal audit struggles to assess IT governance consistently. Which addition helps MOST?",
@@ -1284,6 +1491,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Use each framework for the question it answers best: CSF for outcomes, ISO/IEC 27001 for a certifiable system, CIS for safeguards, COBIT for IT governance.",
+      "CIS implementation groups are cumulative; IG1 is the minimum hygiene every organisation should meet.",
+      "COBIT-style capability levels measure how well a process is defined, measured and improved, from 0 to 5.",
+      "Pick one anchor framework and map the others to it instead of running parallel assessments."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -1340,6 +1557,17 @@ TRACK.modules.push({
        ],
        "answer": 2,
        "explain": "Data recovery (Control 11) covers backup and restoration practices."
+      },
+      {
+       "q": "A bank's board asks how to govern its fast-growing use of AI models without creating a second compliance silo. Which approach fits BEST?",
+       "options": [
+        "Buy a separate AI governance platform and run it independently of the ISMS, with its own risk register and audit calendar",
+        "Map an AI management standard such as ISO/IEC 42001 into the existing control library and governance cadence",
+        "Ban AI use until regulators publish sector-specific rules",
+        "Ask each data science team to write its own AI policy"
+       ],
+       "answer": 1,
+       "explain": "ISO/IEC 42001 shares the ISO management-system structure, so it extends the existing ISMS and control library. Separate tools, bans or team-level policies fragment governance."
       }
      ]
     }
@@ -1439,6 +1667,37 @@ TRACK.modules.push({
        "text": "Collect evidence once per control and reuse it for every mapped obligation."
       }
      ]
+    },
+    {
+     "type": "tree",
+     "title": "One control, many obligations",
+     "caption": "One well-defined control, tested once, produces evidence for five obligations. Requirements that map to no control are your gaps; controls that map to nothing may be waste.",
+     "root": {
+      "label": "Privileged access review",
+      "text": "Control IAM-07, quarterly, owner: IAM lead",
+      "children": [
+       {
+        "label": "ISO/IEC 27001:2022",
+        "text": "A.5.18 access rights; A.8.2 privileged access"
+       },
+       {
+        "label": "NIST CSF 2.0",
+        "text": "PR.AA-05 permissions managed and reviewed"
+       },
+       {
+        "label": "PCI DSS v4.0.1",
+        "text": "Req. 7.2.4 accounts and privileges reviewed"
+       },
+       {
+        "label": "Central-bank guideline",
+        "text": "Periodic user access review clause"
+       },
+       {
+        "label": "Partner contract",
+        "text": "Customer audit clause on admin access"
+       }
+      ]
+     }
     },
     {
      "type": "template",
@@ -1613,6 +1872,16 @@ TRACK.modules.push({
        "term": "Attestation",
        "def": "A formal confirmation by a manager or owner that requirements are understood and met."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Keep the policy short and board-approved; push measurable detail into owned standards and procedures.",
+      "A unified control framework writes each control once and maps it to every obligation, so evidence is collected once.",
+      "Exceptions need risk-based approval levels, compensating controls, expiry dates and visible reporting.",
+      "A fixed GRC rhythm (weekly, monthly, quarterly, annual) keeps policies, risks and exceptions current."
      ]
     },
     {
@@ -1804,6 +2073,38 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "cycle",
+     "title": "The risk management cycle",
+     "center": "Risk owner decides",
+     "caption": "Assessment is a loop, not an annual event: monitoring feeds new evidence back into context and identification, and every turn ends with an owner's decision.",
+     "items": [
+      {
+       "label": "Establish context",
+       "text": "Objectives, scope, appetite and criteria"
+      },
+      {
+       "label": "Identify",
+       "text": "Loss scenarios from services, threats and incidents"
+      },
+      {
+       "label": "Analyse",
+       "text": "Frequency and magnitude as ranges"
+      },
+      {
+       "label": "Evaluate",
+       "text": "Compare with appetite and rank"
+      },
+      {
+       "label": "Treat",
+       "text": "Mitigate, transfer, avoid or accept"
+      },
+      {
+       "label": "Monitor and review",
+       "text": "KRIs, incidents and change trigger a refresh"
+      }
+     ]
+    },
+    {
      "type": "text",
      "text": "Many organisations rate likelihood and impact from 1 to 5 and multiply them. This is quick and helps start conversations, but it has serious weaknesses. Ordinal numbers are labels, not quantities: a 4 is not twice a 2. Multiplying them creates **range compression** (very different risks land in the same cell) and **rank reversal** (a cell that looks higher can hide a smaller loss). Different people interpret 'likely' differently, and risks cannot be added up into a portfolio."
     },
@@ -1842,6 +2143,43 @@ TRACK.modules.push({
       ]
      ],
      "title": "Heat-map problems and practical fixes"
+    },
+    {
+     "type": "matrix",
+     "title": "Range compression in one heat-map cell",
+     "x": "Impact score (ordinal)",
+     "y": "Likelihood score (ordinal)",
+     "caption": "Both risks in the top-right cell score 'likely, major', yet one is a BDT 50 lakh loss and the other BDT 40 crore. The cell hides an eighty-fold difference that money ranges would show at once.",
+     "quadrants": [
+      {
+       "title": "Likely, minor",
+       "items": [
+        "Handle in operations",
+        "Track with KPIs"
+       ]
+      },
+      {
+       "title": "Likely, major",
+       "items": [
+        "Risk A: about BDT 50 lakh",
+        "Risk B: about BDT 40 crore",
+        "Same colour, very different loss"
+       ]
+      },
+      {
+       "title": "Unlikely, minor",
+       "items": [
+        "Accept and monitor"
+       ]
+      },
+      {
+       "title": "Unlikely, major",
+       "items": [
+        "Tail risks: quantify",
+        "Consider transfer"
+       ]
+      }
+     ]
     },
     {
      "type": "callout",
@@ -1950,6 +2288,16 @@ TRACK.modules.push({
        "term": "Risk criteria",
        "def": "The terms of reference, including appetite and rating scales, against which risks are evaluated."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "A decision-ready risk statement names threat, event, weakness, affected service and business consequence.",
+      "Ordinal scores show order, not quantity; multiplying them causes range compression and rank reversal.",
+      "Use anchored qualitative scales for triage and quantify the top risks that drive spending decisions.",
+      "Choose asset-, scenario- or threat-based assessment by the decision it must support."
      ]
     },
     {
@@ -2102,6 +2450,43 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "matrix",
+     "title": "A first-cut treatment heuristic",
+     "x": "Loss magnitude per event",
+     "y": "Event frequency",
+     "caption": "A starting point, not a rule: frequent, severe risks usually call for avoidance or strong mitigation, while rare, severe ones are where insurance and contracts add most value. Always check the result against appetite and cost.",
+     "quadrants": [
+      {
+       "title": "Frequent, small",
+       "items": [
+        "Mitigate with routine controls",
+        "Automate and monitor"
+       ]
+      },
+      {
+       "title": "Frequent, severe",
+       "items": [
+        "Avoid or redesign the activity",
+        "Strong mitigation first"
+       ]
+      },
+      {
+       "title": "Rare, small",
+       "items": [
+        "Accept within appetite",
+        "Review on change"
+       ]
+      },
+      {
+       "title": "Rare, severe",
+       "items": [
+        "Mitigate impact (backups, resilience)",
+        "Transfer residual via insurance"
+       ]
+      }
+     ]
+    },
+    {
      "type": "callout",
      "kind": "warning",
      "text": "Cyber insurance can pay for response, recovery and some liabilities, but it cannot restore customer trust, prevent regulatory action or bring back lost data. Policies also contain exclusions and security conditions; failing to maintain stated controls such as MFA can reduce or void cover. Treat insurance as one part of a treatment plan, not the plan.",
@@ -2142,6 +2527,52 @@ TRACK.modules.push({
       ]
      ],
      "title": "Acceptance authority by residual risk"
+    },
+    {
+     "type": "sequence",
+     "title": "Escalating a high residual risk for acceptance",
+     "actors": [
+      "Risk owner",
+      "CISO",
+      "Executive committee",
+      "Board risk committee"
+     ],
+     "caption": "The CISO advises but does not accept the risk. Authority rises with the residual level, and anything outside appetite reaches the board with a plan and an expiry date.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Request acceptance with options and costs"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Residual estimate and compensating controls",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 2,
+       "label": "Seek approval: residual rated High"
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "Escalate: outside board appetite"
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "label": "Approve for 3 months with remediation plan",
+       "reply": true
+      },
+      {
+       "from": 2,
+       "to": 0,
+       "label": "Record decision, expiry and review trigger",
+       "reply": true
+      }
+     ]
     },
     {
      "type": "steps",
@@ -2268,6 +2699,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Capacity bounds appetite, tolerances make appetite measurable and KRIs warn before tolerances are breached.",
+      "Treatment options are mitigate, transfer, avoid and accept; insurance shares cost but never accountability.",
+      "Acceptance authority rises with residual risk, and every acceptance carries an owner, rationale and expiry.",
+      "Choose the cheapest option that brings residual risk within tolerance, then track it."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -2345,44 +2786,67 @@ TRACK.modules.push({
      "text": "Factor Analysis of Information Risk (**FAIR**), an open standard maintained by The Open Group, is the best-known model for quantifying cyber risk. Its key idea is simple: risk is the probable **frequency** and probable **magnitude** of future loss. When a factor is hard to estimate directly, you break it into smaller factors that are easier to estimate. The description below is our own simplified, FAIR-style reasoning for leaders; formal practitioners use the full published taxonomy."
     },
     {
-     "type": "layers",
-     "title": "A FAIR-style factor tree (top to bottom)",
-     "items": [
-      {
-       "label": "Risk",
-       "parts": [
-        "Annualised loss exposure, expressed as a distribution in money"
-       ]
-      },
-      {
-       "label": "Frequency and magnitude",
-       "parts": [
-        "Loss event frequency (how often per year)",
-        "Loss magnitude (how much per event)"
-       ]
-      },
-      {
-       "label": "Frequency drivers",
-       "parts": [
-        "Threat event frequency: how often threats act",
-        "Vulnerability (susceptibility): chance an attempt becomes a loss"
-       ]
-      },
-      {
-       "label": "Susceptibility drivers",
-       "parts": [
-        "Threat capability",
-        "Resistance strength of controls"
-       ]
-      },
-      {
-       "label": "Magnitude drivers",
-       "parts": [
-        "Primary loss: borne directly by the organisation",
-        "Secondary loss: from reactions of regulators, customers, partners"
-       ]
-      }
-     ]
+     "type": "tree",
+     "title": "A FAIR-style factor tree",
+     "caption": "Read it top-down: when a factor is hard to estimate, step down a level and estimate its parts. Most workshops stop at loss event frequency and loss magnitude unless data is thin.",
+     "root": {
+      "label": "Risk",
+      "text": "Annualised loss exposure, in money",
+      "children": [
+       {
+        "label": "Loss event frequency",
+        "text": "Loss events per year",
+        "children": [
+         {
+          "label": "Threat event frequency",
+          "text": "How often threats act against the asset",
+          "children": [
+           {
+            "label": "Contact frequency"
+           },
+           {
+            "label": "Probability of action"
+           }
+          ]
+         },
+         {
+          "label": "Susceptibility",
+          "text": "Chance an attempt becomes a loss",
+          "children": [
+           {
+            "label": "Threat capability"
+           },
+           {
+            "label": "Resistance strength"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "label": "Loss magnitude",
+        "text": "Money lost per event",
+        "children": [
+         {
+          "label": "Primary loss",
+          "text": "Borne directly: productivity, response, replacement"
+         },
+         {
+          "label": "Secondary loss",
+          "text": "From reactions of regulators, customers, partners",
+          "children": [
+           {
+            "label": "Secondary event frequency"
+           },
+           {
+            "label": "Secondary loss magnitude"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
     },
     {
      "type": "formula",
@@ -2598,6 +3062,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Risk is the probable frequency and probable magnitude of future loss, estimated as ranges.",
+      "Loss event frequency comes from threat event frequency times susceptibility; magnitude from primary plus secondary loss.",
+      "Calibrated estimators give 90% ranges that contain the true answer about 90% of the time.",
+      "Single-point ALE is useful for intuition but hides the uncertainty and the bad-year tail."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -2735,6 +3209,65 @@ TRACK.modules.push({
     {
      "type": "text",
      "text": "A **loss exceedance curve (LEC)** plots loss amounts on the horizontal axis and the probability of exceeding each amount in a year on the vertical axis. Draw the organisation's **risk tolerance curve** on the same chart: the maximum probability the board will accept for each loss level. Where the inherent or current LEC sits above the tolerance curve, risk is outside appetite and needs treatment."
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Loss exceedance curve against tolerance (illustrative)",
+     "unit": "%",
+     "yLabel": "Chance of exceeding in a year",
+     "labels": [
+      "2 cr",
+      "5 cr",
+      "10 cr",
+      "15 cr",
+      "20 cr",
+      "25 cr",
+      "30 cr",
+      "40 cr"
+     ],
+     "series": [
+      {
+       "name": "Current controls",
+       "values": [
+        25,
+        20,
+        13.4,
+        8.5,
+        6,
+        4.4,
+        2.8,
+        1.6
+       ]
+      },
+      {
+       "name": "With MFA and backups",
+       "values": [
+        12,
+        9,
+        6,
+        4,
+        2.6,
+        1.7,
+        1.1,
+        0.5
+       ]
+      },
+      {
+       "name": "Board tolerance",
+       "values": [
+        40,
+        25,
+        12,
+        7,
+        5,
+        4,
+        3,
+        2
+       ]
+      }
+     ],
+     "caption": "Illustrative numbers, loosely based on the simulation above. Where the current curve rises above the tolerance curve (roughly BDT 10 to 25 crore) the risk is outside appetite; the proposed controls pull the whole curve below it."
     },
     {
      "type": "formula",
@@ -2911,6 +3444,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Monte Carlo simulation turns frequency and magnitude ranges into a distribution of annual losses.",
+      "Boards should see the tail (for example the 1-in-20 year) next to the mean, because the tail threatens budgets and reputation.",
+      "Plot the loss exceedance curve against the tolerance curve; where it sits above, treatment is needed.",
+      "ROSI ranks options, but appetite and legal duties decide; simulate control combinations rather than adding savings."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -2949,7 +3492,7 @@ TRACK.modules.push({
       {
        "q": "Why should combined controls be simulated rather than adding individual savings?",
        "options": [
-        "Simulation software cannot add separate savings figures reliably",
+        "Simulation software cannot add separate savings figures reliably, even for two controls",
         "Regulators require combined simulation",
         "Controls overlap, so combined savings are usually less than the sum",
         "Individual savings are always zero"
@@ -3113,6 +3656,116 @@ TRACK.modules.push({
      "title": "Technique-to-control coverage (extract)"
     },
     {
+     "type": "topology",
+     "title": "A ransomware attack path mapped to controls",
+     "caption": "Each hop is a technique from the scenario; the weakest hop sets susceptibility. Here the backup server is reachable with stolen admin rights and has no immutable copy, so that hop dominates the estimate.",
+     "nodes": [
+      {
+       "id": "att",
+       "kind": "attacker",
+       "label": "Ransomware group",
+       "sub": "Priority threat community",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "id": "inet",
+       "kind": "internet",
+       "label": "Internet",
+       "x": 3,
+       "y": 0
+      },
+      {
+       "id": "vpn",
+       "kind": "gateway",
+       "label": "VPN gateway",
+       "sub": "MFA on: Good",
+       "x": 3,
+       "y": 2
+      },
+      {
+       "id": "user",
+       "kind": "laptop",
+       "label": "Staff laptop",
+       "sub": "Phished creds: Partial",
+       "x": 0,
+       "y": 2
+      },
+      {
+       "id": "dc",
+       "kind": "server",
+       "label": "Directory",
+       "sub": "Admin rights stolen",
+       "x": 5,
+       "y": 2
+      },
+      {
+       "id": "files",
+       "kind": "storage",
+       "label": "File servers",
+       "sub": "Encrypted at impact",
+       "x": 5,
+       "y": 4
+      },
+      {
+       "id": "bkp",
+       "kind": "storage",
+       "label": "Backup server",
+       "sub": "No immutability: Weak",
+       "x": 7,
+       "y": 4
+      }
+     ],
+     "zones": [
+      {
+       "label": "Corporate network",
+       "x": 3,
+       "y": 2,
+       "w": 5,
+       "h": 3,
+       "tone": "neutral"
+      }
+     ],
+     "links": [
+      {
+       "a": "att",
+       "b": "user",
+       "style": "attack",
+       "label": "1 phish"
+      },
+      {
+       "a": "att",
+       "b": "inet",
+       "style": "attack",
+       "label": "2 stolen creds"
+      },
+      {
+       "a": "inet",
+       "b": "vpn",
+       "style": "attack",
+       "label": "log in"
+      },
+      {
+       "a": "vpn",
+       "b": "dc",
+       "style": "attack",
+       "label": "3 escalate"
+      },
+      {
+       "a": "dc",
+       "b": "bkp",
+       "style": "attack",
+       "label": "4 delete"
+      },
+      {
+       "a": "dc",
+       "b": "files",
+       "style": "attack",
+       "label": "5 encrypt"
+      }
+     ]
+    },
+    {
      "type": "keypoints",
      "items": [
       "National CIRT and sector CERT advisories (for example Bangladesh's national government CIRT and banking-sector sharing groups)",
@@ -3201,6 +3854,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Start scenarios from the threat communities most likely to target your sector and region.",
+      "Mapping their techniques to prevent, detect and recover controls turns susceptibility estimates into evidence.",
+      "Near misses and your own incidents are data: update frequency and control estimates promptly.",
+      "Read industry reports critically for sample bias, and record the evidence behind every estimate."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -3220,7 +3883,7 @@ TRACK.modules.push({
         "Financially motivated fraud groups",
         "State-aligned espionage actors",
         "Hacktivists",
-        "Natural hazards"
+        "Natural hazards such as floods affecting the bank's data centre"
        ],
        "answer": 0,
        "explain": "SIM-swap is a common fraud technique for account takeover and payment theft."
@@ -3229,7 +3892,7 @@ TRACK.modules.push({
        "q": "How should a near miss affect the risk register?",
        "options": [
         "It should be ignored, because no loss actually occurred",
-        "It should be reported only to the insurer",
+        "It should be reported only to the insurer at the next policy renewal",
         "It should automatically make the risk critical",
         "It should prompt a review of frequency and control estimates"
        ],
@@ -3391,6 +4054,153 @@ TRACK.modules.push({
      "title": "Reference architectures save time"
     },
     {
+     "type": "topology",
+     "title": "Reference pattern: internet-facing web application",
+     "caption": "Read the pattern by its trust boundaries: only the edge is reachable from the internet, data stays in the internal zone, and identity, keys and logging are shared security services every team reuses.",
+     "nodes": [
+      {
+       "id": "cust",
+       "kind": "user",
+       "label": "Customers",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "id": "inet",
+       "kind": "internet",
+       "label": "Internet",
+       "x": 3,
+       "y": 0
+      },
+      {
+       "id": "waf",
+       "kind": "firewall",
+       "label": "Edge WAF",
+       "sub": "TLS, rate limits, bot rules",
+       "x": 3,
+       "y": 2
+      },
+      {
+       "id": "web",
+       "kind": "server",
+       "label": "Web tier",
+       "sub": "Stateless, no data stored",
+       "x": 3,
+       "y": 3
+      },
+      {
+       "id": "app",
+       "kind": "server",
+       "label": "App tier",
+       "sub": "Business logic, authorisation",
+       "x": 3,
+       "y": 4
+      },
+      {
+       "id": "db",
+       "kind": "db",
+       "label": "Database",
+       "sub": "Encrypted; app-only access",
+       "x": 3,
+       "y": 6
+      },
+      {
+       "id": "idp",
+       "kind": "idp",
+       "label": "IdP / SSO",
+       "sub": "MFA, short-lived tokens",
+       "x": 6,
+       "y": 3
+      },
+      {
+       "id": "siem",
+       "kind": "siem",
+       "label": "SIEM",
+       "sub": "Logs from every tier",
+       "x": 6,
+       "y": 5
+      },
+      {
+       "id": "kms",
+       "kind": "kms",
+       "label": "Key management",
+       "sub": "Database encryption keys",
+       "x": 6,
+       "y": 6
+      }
+     ],
+     "zones": [
+      {
+       "label": "DMZ",
+       "x": 2,
+       "y": 2,
+       "w": 3,
+       "h": 2,
+       "tone": "warn"
+      },
+      {
+       "label": "Internal zone",
+       "x": 2,
+       "y": 4,
+       "w": 3,
+       "h": 3,
+       "tone": "good"
+      },
+      {
+       "label": "Security services",
+       "x": 5,
+       "y": 3,
+       "w": 3,
+       "h": 4,
+       "tone": "accent"
+      }
+     ],
+     "links": [
+      {
+       "a": "cust",
+       "b": "inet",
+       "label": "HTTPS"
+      },
+      {
+       "a": "inet",
+       "b": "waf",
+       "label": "443 only"
+      },
+      {
+       "a": "waf",
+       "b": "web"
+      },
+      {
+       "a": "web",
+       "b": "app",
+       "label": "API"
+      },
+      {
+       "a": "app",
+       "b": "db",
+       "label": "SQL, app account"
+      },
+      {
+       "a": "web",
+       "b": "idp",
+       "style": "dashed",
+       "label": "token checks"
+      },
+      {
+       "a": "app",
+       "b": "siem",
+       "style": "dashed",
+       "label": "logs"
+      },
+      {
+       "a": "db",
+       "b": "kms",
+       "style": "dashed",
+       "label": "keys"
+      }
+     ]
+    },
+    {
      "type": "template",
      "title": "Architecture decision record (ADR)",
      "purpose": "Capture a significant security architecture decision, its context and consequences, so that it can be reviewed, governed and revisited.",
@@ -3515,6 +4325,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Architecture turns governance into reusable structures: zones, trust boundaries, identity flows and patterns.",
+      "Timeless principles such as least privilege, defence in depth, assume breach and fail securely guide every design.",
+      "Business-driven methods give traceability from each control back to a business attribute.",
+      "Approved reference patterns and decision records let teams move fast while keeping review for real deviations."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -3605,32 +4425,74 @@ TRACK.modules.push({
      "title": "Zero trust tenets (our summary)"
     },
     {
-     "type": "flow",
-     "title": "The zero trust access decision",
-     "items": [
+     "type": "sequence",
+     "title": "A zero trust access decision, step by step",
+     "actors": [
+      "User and device",
+      "Enforcement point",
+      "Policy administrator",
+      "Policy engine",
+      "Resource"
+     ],
+     "caption": "Nothing passes by default: the enforcement point asks, the engine decides from live signals and the administrator opens or closes the path. Access is per session and can be withdrawn mid-session when signals change.",
+     "steps": [
       {
-       "label": "Subject",
-       "text": "User, service or device requests a resource"
+       "from": 0,
+       "to": 1,
+       "label": "Request access to the payroll app"
       },
       {
-       "label": "Policy enforcement point",
-       "text": "Intercepts the request; nothing passes by default"
+       "from": 1,
+       "to": 2,
+       "label": "Forward request with context"
       },
       {
-       "label": "Policy engine",
-       "text": "Evaluates identity, device posture, risk signals and policy"
+       "from": 2,
+       "to": 3,
+       "label": "Ask for a decision"
       },
       {
-       "label": "Policy administrator",
-       "text": "Instructs the enforcement point to allow or deny the session"
+       "from": 3,
+       "to": 3,
+       "label": "Weigh identity, posture, risk, policy"
       },
       {
-       "label": "Resource",
-       "text": "Access granted for this session only, and monitored"
+       "from": 3,
+       "to": 2,
+       "label": "Allow: this app, this session",
+       "reply": true
       },
       {
-       "label": "Feedback",
-       "text": "Telemetry updates risk scores and future decisions"
+       "from": 2,
+       "to": 1,
+       "label": "Open the session path"
+      },
+      {
+       "from": 1,
+       "to": 4,
+       "label": "Forward the session"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Access granted and monitored",
+       "reply": true
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "label": "Posture fails mid-session: revoke"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Tear down the session"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Session ended",
+       "reply": true
       }
      ]
     },
@@ -3681,6 +4543,124 @@ TRACK.modules.push({
      "kind": "insight",
      "text": "Public maturity models add three capabilities that cut across all pillars: **visibility and analytics**, **automation and orchestration**, and **governance**. Without them, zero trust becomes a collection of disconnected tools. Governance defines policy, ownership and exceptions; analytics provides the signals; automation enforces decisions consistently.",
      "title": "Cross-cutting capabilities decide success"
+    },
+    {
+     "type": "topology",
+     "title": "Zero trust logical components",
+     "caption": "The control plane decides and the data plane enforces. The policy engine is only as good as its signal feeds: identity, device posture and analytics.",
+     "nodes": [
+      {
+       "id": "idp",
+       "kind": "idp",
+       "label": "IdP",
+       "sub": "Identity, phishing-resistant MFA",
+       "x": 0,
+       "y": 1
+      },
+      {
+       "id": "pdp",
+       "kind": "controller",
+       "label": "Policy engine",
+       "sub": "With policy administrator",
+       "x": 3,
+       "y": 1
+      },
+      {
+       "id": "siem",
+       "kind": "siem",
+       "label": "Analytics",
+       "sub": "Risk signals, threat intel",
+       "x": 6,
+       "y": 1
+      },
+      {
+       "id": "mdm",
+       "kind": "server",
+       "label": "Device mgmt",
+       "sub": "Posture: patch, encryption",
+       "x": 0,
+       "y": 3
+      },
+      {
+       "id": "pep",
+       "kind": "gateway",
+       "label": "Access proxy",
+       "sub": "Policy enforcement point",
+       "x": 3,
+       "y": 4
+      },
+      {
+       "id": "app",
+       "kind": "server",
+       "label": "Payroll app",
+       "sub": "Protect surface",
+       "x": 6,
+       "y": 4
+      },
+      {
+       "id": "user",
+       "kind": "laptop",
+       "label": "Staff laptop",
+       "sub": "Managed device",
+       "x": 1,
+       "y": 6
+      }
+     ],
+     "zones": [
+      {
+       "label": "Control plane",
+       "x": 0,
+       "y": 1,
+       "w": 7,
+       "h": 3,
+       "tone": "accent"
+      },
+      {
+       "label": "Data plane",
+       "x": 3,
+       "y": 4,
+       "w": 4,
+       "h": 1,
+       "tone": "neutral"
+      }
+     ],
+     "links": [
+      {
+       "a": "user",
+       "b": "pep",
+       "label": "request"
+      },
+      {
+       "a": "pep",
+       "b": "pdp",
+       "style": "dashed",
+       "label": "decide?"
+      },
+      {
+       "a": "pdp",
+       "b": "idp",
+       "style": "dashed",
+       "label": "identity"
+      },
+      {
+       "a": "pdp",
+       "b": "mdm",
+       "style": "dashed",
+       "label": "posture"
+      },
+      {
+       "a": "pdp",
+       "b": "siem",
+       "style": "dashed",
+       "label": "risk"
+      },
+      {
+       "a": "pep",
+       "b": "app",
+       "style": "bold",
+       "label": "this session"
+      }
+     ]
     },
     {
      "type": "steps",
@@ -3816,6 +4796,16 @@ TRACK.modules.push({
        "term": "Conditional access",
        "def": "Access policy that considers conditions such as user risk, device state and location before granting access."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Zero trust removes trust based on network location and decides access per request from identity, device and context.",
+      "An enforcement point asks, a policy engine decides and a policy administrator opens or closes the session.",
+      "Start with protect surfaces and the riskiest identities: phishing-resistant MFA and per-application access for admins and contractors.",
+      "Measure progress by how much implicit trust has been removed, pillar by pillar, not by products bought."
      ]
     },
     {
@@ -3956,6 +4946,112 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "topology",
+     "title": "A macro-segmented enterprise network",
+     "caption": "Every zone reaches others only through the firewall's explicit allow rules. A compromised laptop can reach the application ports and authentication it needs, but not the management plane or the backup vault.",
+     "nodes": [
+      {
+       "id": "inet",
+       "kind": "internet",
+       "label": "Internet",
+       "x": 3,
+       "y": 0
+      },
+      {
+       "id": "fw",
+       "kind": "firewall",
+       "label": "Core firewall",
+       "sub": "Deny by default between zones",
+       "x": 3,
+       "y": 2
+      },
+      {
+       "id": "web",
+       "kind": "server",
+       "label": "Web servers",
+       "sub": "DMZ",
+       "x": 0,
+       "y": 2
+      },
+      {
+       "id": "dir",
+       "kind": "server",
+       "label": "Directory",
+       "sub": "Tier 0 identity",
+       "x": 6,
+       "y": 2
+      },
+      {
+       "id": "user",
+       "kind": "laptop",
+       "label": "User devices",
+       "sub": "User zone",
+       "x": 0,
+       "y": 5
+      },
+      {
+       "id": "app",
+       "kind": "server",
+       "label": "App servers",
+       "sub": "Server zone",
+       "x": 2,
+       "y": 5
+      },
+      {
+       "id": "jump",
+       "kind": "host",
+       "label": "Admin jump host",
+       "sub": "Management zone, PAM",
+       "x": 4,
+       "y": 5
+      },
+      {
+       "id": "bkp",
+       "kind": "storage",
+       "label": "Backup vault",
+       "sub": "Isolated, immutable",
+       "x": 6,
+       "y": 5
+      }
+     ],
+     "links": [
+      {
+       "a": "inet",
+       "b": "fw"
+      },
+      {
+       "a": "fw",
+       "b": "web",
+       "label": "443 only"
+      },
+      {
+       "a": "fw",
+       "b": "dir",
+       "label": "auth only"
+      },
+      {
+       "a": "fw",
+       "b": "user"
+      },
+      {
+       "a": "fw",
+       "b": "app",
+       "label": "app ports"
+      },
+      {
+       "a": "fw",
+       "b": "jump",
+       "label": "PAM"
+      },
+      {
+       "a": "jump",
+       "b": "bkp",
+       "style": "dashed",
+       "label": "admin only"
+      }
+     ]
+    },
+    {
      "type": "compare",
      "title": "Remote and branch access models",
      "columns": [
@@ -3987,8 +5083,10 @@ TRACK.modules.push({
      ]
     },
     {
-     "type": "flow",
+     "type": "cycle",
      "title": "A secure development lifecycle",
+     "center": "Security champions",
+     "caption": "Security is built into every stage of delivery, and findings from operations feed the next round of requirements, so the same flaw is not shipped twice.",
      "items": [
       {
        "label": "Requirements",
@@ -4004,7 +5102,7 @@ TRACK.modules.push({
       },
       {
        "label": "Test",
-       "text": "Static and dynamic testing, API testing"
+       "text": "Static, dynamic and API testing"
       },
       {
        "label": "Release",
@@ -4137,6 +5235,16 @@ TRACK.modules.push({
        "term": "Broken object-level authorisation",
        "def": "An API flaw where a user can access objects they do not own by changing identifiers in requests."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Segmentation limits blast radius; discover real flows and run rules in monitor mode before enforcing.",
+      "SSE delivers per-application access and inspection from the cloud; SASE adds software-defined WAN.",
+      "Build security into the pipeline with automated checks, safe defaults and security champions, not late manual gates.",
+      "Keep an API inventory and test authorisation on every object; broken object-level authorisation leaks data at scale."
      ]
     },
     {
@@ -4314,6 +5422,60 @@ TRACK.modules.push({
        ]
       }
      ]
+    },
+    {
+     "type": "tree",
+     "title": "A landing zone account hierarchy",
+     "caption": "Guardrails attached high in the tree are inherited below, so a rule set at the root, such as no public storage or no unapproved regions, applies to every new account automatically.",
+     "root": {
+      "label": "Organisation root",
+      "text": "Preventive guardrails inherited by all",
+      "children": [
+       {
+        "label": "Security",
+        "children": [
+         {
+          "label": "Log archive",
+          "text": "Immutable central logs"
+         },
+         {
+          "label": "Security tooling",
+          "text": "Posture management, detection"
+         }
+        ]
+       },
+       {
+        "label": "Infrastructure",
+        "children": [
+         {
+          "label": "Network hub",
+          "text": "Egress inspection, private links"
+         },
+         {
+          "label": "Shared services",
+          "text": "Pipelines, DNS, directory sync"
+         }
+        ]
+       },
+       {
+        "label": "Workloads",
+        "children": [
+         {
+          "label": "Production",
+          "text": "One account per application"
+         },
+         {
+          "label": "Non-production",
+          "text": "Dev and test with masked data"
+         }
+        ]
+       },
+       {
+        "label": "Sandbox",
+        "text": "Experiments, budget caps, no real data"
+       }
+      ]
+     }
     },
     {
      "type": "compare",
@@ -4498,6 +5660,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "The customer always owns data, identities and configuration, whatever the service model.",
+      "Most cloud breaches come from misconfiguration and over-permissive identities, not provider failure.",
+      "A landing zone gives teams a governed starting point with inherited preventive guardrails and central logging.",
+      "Use policy as code to test rules before deployment and enforce them continuously afterwards."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -4677,6 +5849,160 @@ TRACK.modules.push({
      "title": "Security levels in plain words"
     },
     {
+     "type": "topology",
+     "title": "IT/OT zones and conduits at an industrial site",
+     "caption": "No traffic crosses directly from the enterprise to the control network: data is mirrored into the industrial DMZ and vendors reach OT only through a brokered, recorded session. Each zone boundary is a conduit with its own controls.",
+     "nodes": [
+      {
+       "id": "inet",
+       "kind": "internet",
+       "label": "Internet",
+       "x": 3,
+       "y": 0
+      },
+      {
+       "id": "efw",
+       "kind": "firewall",
+       "label": "Enterprise FW",
+       "x": 3,
+       "y": 1
+      },
+      {
+       "id": "erp",
+       "kind": "server",
+       "label": "ERP and email",
+       "sub": "Levels 4-5",
+       "x": 0,
+       "y": 2
+      },
+      {
+       "id": "mirror",
+       "kind": "server",
+       "label": "Historian mirror",
+       "sub": "Level 3.5 broker",
+       "x": 3,
+       "y": 3
+      },
+      {
+       "id": "ra",
+       "kind": "gateway",
+       "label": "Remote access",
+       "sub": "Vendor broker, MFA, recorded",
+       "x": 6,
+       "y": 3
+      },
+      {
+       "id": "ofw",
+       "kind": "firewall",
+       "label": "OT firewall",
+       "sub": "Conduit controls",
+       "x": 3,
+       "y": 4
+      },
+      {
+       "id": "hmi",
+       "kind": "monitor",
+       "label": "SCADA / HMI",
+       "sub": "Level 2",
+       "x": 1,
+       "y": 5
+      },
+      {
+       "id": "eng",
+       "kind": "host",
+       "label": "Eng workstation",
+       "sub": "Level 3",
+       "x": 5,
+       "y": 5
+      },
+      {
+       "id": "plc",
+       "kind": "controller",
+       "label": "PLCs",
+       "sub": "Level 1",
+       "x": 3,
+       "y": 6
+      }
+     ],
+     "zones": [
+      {
+       "label": "Enterprise zone",
+       "x": 0,
+       "y": 1,
+       "w": 4,
+       "h": 2,
+       "tone": "neutral"
+      },
+      {
+       "label": "Industrial DMZ",
+       "x": 2,
+       "y": 3,
+       "w": 6,
+       "h": 1,
+       "tone": "warn"
+      },
+      {
+       "label": "OT zones (SL target set per zone)",
+       "x": 0,
+       "y": 4,
+       "w": 7,
+       "h": 3,
+       "tone": "accent"
+      }
+     ],
+     "links": [
+      {
+       "a": "inet",
+       "b": "efw"
+      },
+      {
+       "a": "efw",
+       "b": "erp"
+      },
+      {
+       "a": "efw",
+       "b": "mirror",
+       "label": "read-only pull"
+      },
+      {
+       "a": "efw",
+       "b": "ra",
+       "style": "tunnel",
+       "label": "MFA"
+      },
+      {
+       "a": "mirror",
+       "b": "ofw",
+       "label": "replication"
+      },
+      {
+       "a": "ra",
+       "b": "ofw",
+       "style": "dashed",
+       "label": "approved session"
+      },
+      {
+       "a": "ofw",
+       "b": "hmi"
+      },
+      {
+       "a": "ofw",
+       "b": "eng"
+      },
+      {
+       "a": "hmi",
+       "b": "plc",
+       "label": "control"
+      },
+      {
+       "a": "eng",
+       "b": "plc",
+       "style": "dashed",
+       "label": "logic changes"
+      }
+     ]
+    },
+    {
      "type": "steps",
      "title": "Starting an OT security programme",
      "items": [
@@ -4753,6 +6079,12 @@ TRACK.modules.push({
      "title": "IoT device governance"
     },
     {
+     "type": "callout",
+     "kind": "insight",
+     "title": "Product security law is arriving",
+     "text": "Regulators now set baseline security for connected products. The UK's product security regime has banned universal default passwords on consumer connectable products since April 2024. The **EU Cyber Resilience Act**, in force since December 2024, phases in duties for products with digital elements: reporting of actively exploited vulnerabilities and severe incidents from September 2026 and the full security requirements from December 2027. Use these baselines in procurement contracts even where they do not bind you directly, and check the official timetable for detail."
+    },
+    {
      "type": "scenario",
      "title": "The vendor wants permanent remote access",
      "situation": "A hospital's new MRI scanner vendor asks for a permanent always-on VPN into the clinical network for 'predictive maintenance'. The biomedical engineering team supports it. What should the CISO require?",
@@ -4821,6 +6153,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "In OT, safety and availability come first; patching, scanning and change all need engineering agreement.",
+      "Group assets into zones with target security levels and control every conduit between them, starting with an industrial DMZ.",
+      "Remove direct IT-to-OT paths and broker vendor access with MFA, approval and recording.",
+      "Product security laws such as the EU Cyber Resilience Act give useful procurement baselines for connected devices."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -4877,6 +6219,17 @@ TRACK.modules.push({
        ],
        "answer": 1,
        "explain": "Shared default credentials are a common cause of mass IoT compromise."
+      },
+      {
+       "q": "A water utility is buying smart sensors for its distribution network. Which procurement requirement best reflects current product-security expectations?",
+       "options": [
+        "The cheapest compliant hardware, with security reviewed after installation by the operations team once the network is live",
+        "Unique credentials per device, a stated security-update period and a vulnerability disclosure process",
+        "Devices that can be managed from any internet address for convenience",
+        "A vendor statement that the product has never been hacked"
+       ],
+       "answer": 1,
+       "explain": "Unique credentials, a defined support period and vulnerability handling are core to product-security baselines such as the EU Cyber Resilience Act. The other options add exposure or rely on unverifiable claims."
       }
      ]
     }
@@ -5016,6 +6369,79 @@ TRACK.modules.push({
      "title": "Segregation of duties examples"
     },
     {
+     "type": "sequence",
+     "title": "An access request and its later certification",
+     "actors": [
+      "Employee",
+      "IGA platform",
+      "Line manager",
+      "Resource owner",
+      "Target system"
+     ],
+     "caption": "The platform checks segregation of duties before anyone approves, the owner who understands the entitlement decides, and the same owner later certifies whether the access is still needed.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Request 'approve vendor payments'"
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "SoD check: no conflicting roles"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Approve business need?"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Approved",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Approve entitlement?"
+      },
+      {
+       "from": 3,
+       "to": 1,
+       "label": "Approved",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 4,
+       "label": "Provision entitlement"
+      },
+      {
+       "from": 4,
+       "to": 1,
+       "label": "Confirmed and logged",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Quarterly: keep or revoke? Unused 94 days"
+      },
+      {
+       "from": 3,
+       "to": 1,
+       "label": "Revoke",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 4,
+       "label": "Remove entitlement, record evidence"
+      }
+     ]
+    },
+    {
      "type": "steps",
      "title": "An access certification that is not a rubber stamp",
      "items": [
@@ -5149,6 +6575,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Drive joiner, mover and leaver events from the authoritative HR source; movers must remove before they add.",
+      "RBAC is easy to review, ABAC is fine-grained, PBAC centralises readable policy; choose by the decision you need.",
+      "Segregation-of-duties checks belong before approval, not only in the annual audit.",
+      "Certifications work when scoped by risk, written in plain words, shown with usage data and easy to revoke."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -5177,7 +6613,7 @@ TRACK.modules.push({
        "q": "A reviewer approves 600 entitlements in four minutes. What does this indicate?",
        "options": [
         "Rubber-stamping that the process should flag",
-        "A highly efficient review",
+        "A highly efficient review by an experienced manager",
         "That all access is appropriate",
         "A need for more entitlements"
        ],
@@ -5188,7 +6624,7 @@ TRACK.modules.push({
        "q": "Which pair of duties creates a segregation-of-duties conflict?",
        "options": [
         "Reading a report and printing it",
-        "Logging in and changing one's own password",
+        "Logging in to a system and then changing one's own password",
         "Viewing a dashboard and exporting a chart",
         "Creating a vendor and approving payments to it"
        ],
@@ -5198,7 +6634,7 @@ TRACK.modules.push({
       {
        "q": "What is a common drawback of very fine-grained RBAC?",
        "options": [
-        "It cannot be reviewed at all",
+        "Roles can no longer be reviewed by managers at all",
         "It ignores job functions",
         "Role explosion that makes roles hard to manage",
         "It requires no identity data"
@@ -5315,14 +6751,74 @@ TRACK.modules.push({
      "title": "Authentication strength (from weakest to strongest)"
     },
     {
+     "type": "sequence",
+     "title": "Just-in-time privileged access through a PAM broker",
+     "actors": [
+      "Administrator",
+      "PAM broker",
+      "Approver",
+      "Target server"
+     ],
+     "caption": "No standing admin rights: the administrator proves identity with a phishing-resistant key, a second person approves a time-boxed elevation, the session is recorded and the rights disappear on expiry.",
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Request admin rights for change CHG-1042"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Step up: present security key",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Phishing-resistant MFA"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Approve 2-hour elevation?"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Approved",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Grant time-bound rights"
+      },
+      {
+       "from": 0,
+       "to": 3,
+       "label": "Work via brokered, recorded session"
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Expiry: revoke rights"
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "Rotate credential, store recording"
+      }
+     ]
+    },
+    {
      "type": "callout",
      "kind": "insight",
-     "text": "Real-time phishing kits can relay one-time codes and push approvals to attackers. Methods that cryptographically bind authentication to the genuine website, such as FIDO2 security keys and passkeys, defeat these attacks. Make them mandatory for administrators, finance approvers and executives first.",
+     "text": "Real-time phishing kits can relay one-time codes and push approvals to attackers. Methods that cryptographically bind authentication to the genuine website, such as FIDO2 security keys and passkeys, defeat these attacks. Make them mandatory for administrators, finance approvers and executives first; for the most privileged roles prefer device-bound keys over passkeys that sync between devices.",
      "title": "Phishing-resistant MFA is the new baseline for admins"
     },
     {
      "type": "text",
-     "text": "**Non-human identities (NHIs)** include service accounts, application credentials, API keys, cloud workload roles, bots and certificates. In many organisations they outnumber human identities many times over. They often have broad privileges, never expire, are shared between systems and have no clear owner. Stolen tokens and keys from code repositories and CI/CD systems are now a leading way into cloud environments."
+     "text": "**Non-human identities (NHIs)** include service accounts, application credentials, API keys, cloud workload roles, bots and certificates. In many organisations they outnumber human identities many times over. AI agents that act on behalf of users with delegated permissions are the newest and fastest-growing kind. They often have broad privileges, never expire, are shared between systems and have no clear owner. Stolen tokens and keys from code repositories and CI/CD systems are now a leading way into cloud environments."
     },
     {
      "type": "table",
@@ -5354,6 +6850,10 @@ TRACK.modules.push({
       [
        "Invisible misuse",
        "Baseline normal behaviour and alert on anomalies such as new locations or APIs"
+      ],
+      [
+       "AI agents acting for users",
+       "Own identity per agent, narrowly scoped short-lived permissions, human approval for high-impact actions, full logging"
       ]
      ],
      "title": "Governing non-human identities"
@@ -5437,6 +6937,16 @@ TRACK.modules.push({
        "term": "Secrets vault",
        "def": "A secured system that stores, issues and rotates credentials and keys for people and applications."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Minimise standing privilege: separate admin identities, just-in-time elevation, vaulting and session recording.",
+      "Phishing-resistant methods such as passkeys and security keys defeat real-time relay attacks that beat codes and pushes.",
+      "Non-human identities, including AI agents, need owners, short-lived scoped credentials and behaviour monitoring.",
+      "Test break-glass accounts and alert on any change to privileged groups."
      ]
     },
     {
@@ -5614,6 +7124,113 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "topology",
+     "title": "Following one data set to every copy",
+     "caption": "A data inventory starts at the source and follows each copy. Controls change with location: masking in test, contracts for SaaS, DLP on email and endpoints, and a block on unapproved AI tools.",
+     "nodes": [
+      {
+       "id": "ai",
+       "kind": "cloud",
+       "label": "Public AI tool",
+       "sub": "Unapproved: blocked",
+       "x": 0,
+       "y": 0
+      },
+      {
+       "id": "saas",
+       "kind": "cloud",
+       "label": "Marketing SaaS",
+       "sub": "Approved, under contract",
+       "x": 3,
+       "y": 0
+      },
+      {
+       "id": "crm",
+       "kind": "db",
+       "label": "Customer DB",
+       "sub": "Restricted; owner: Retail",
+       "x": 3,
+       "y": 2
+      },
+      {
+       "id": "dw",
+       "kind": "db",
+       "label": "Data warehouse",
+       "sub": "Analytics copy",
+       "x": 6,
+       "y": 2
+      },
+      {
+       "id": "mail",
+       "kind": "gateway",
+       "label": "Email gateway",
+       "sub": "DLP on data in motion",
+       "x": 0,
+       "y": 3
+      },
+      {
+       "id": "test",
+       "kind": "server",
+       "label": "Test env",
+       "sub": "Masked copy only",
+       "x": 6,
+       "y": 4
+      },
+      {
+       "id": "pc",
+       "kind": "laptop",
+       "label": "Staff laptop",
+       "sub": "Endpoint DLP",
+       "x": 1,
+       "y": 5
+      }
+     ],
+     "zones": [
+      {
+       "label": "External services",
+       "x": 0,
+       "y": 0,
+       "w": 4,
+       "h": 1,
+       "tone": "warn"
+      }
+     ],
+     "links": [
+      {
+       "a": "crm",
+       "b": "saas",
+       "label": "approved export"
+      },
+      {
+       "a": "crm",
+       "b": "dw",
+       "label": "ETL"
+      },
+      {
+       "a": "dw",
+       "b": "test",
+       "style": "dashed",
+       "label": "masked"
+      },
+      {
+       "a": "pc",
+       "b": "crm",
+       "label": "app access"
+      },
+      {
+       "a": "pc",
+       "b": "mail",
+       "label": "attachments"
+      },
+      {
+       "a": "pc",
+       "b": "ai",
+       "style": "attack",
+       "label": "paste blocked"
+      }
+     ]
+    },
+    {
      "type": "callout",
      "kind": "warning",
      "text": "Staff pasting customer records or source code into public AI chat tools is now one of the commonest forms of accidental disclosure. Provide approved AI tools with enterprise data controls, state clearly which classifications may be used with them, and monitor uploads to unapproved services.",
@@ -5714,6 +7331,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Data owners classify; a short scheme of about four levels is applied more consistently than a long one.",
+      "Apply controls proportionate to classification at every lifecycle stage, from collection to evidenced destruction.",
+      "Discovery and DSPM find the copies; DLP should start in monitor mode on a few high-value policies.",
+      "Give staff approved AI tools with clear rules on which data classes may be used in them."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -5730,7 +7357,7 @@ TRACK.modules.push({
       {
        "q": "What is the main purpose of data masking in test environments?",
        "options": [
-        "To speed up database queries",
+        "To speed up database queries during performance testing",
         "To let testing proceed without exposing real personal data",
         "To compress data for storage",
         "To satisfy the cloud provider"
@@ -5817,38 +7444,39 @@ TRACK.modules.push({
      "title": "Where encryption applies"
     },
     {
-     "type": "layers",
-     "title": "A key management hierarchy",
-     "items": [
-      {
-       "label": "Root of trust",
-       "parts": [
-        "Hardware security module (HSM)",
-        "Master keys never leave the hardware"
-       ]
-      },
-      {
-       "label": "Key encryption keys",
-       "parts": [
-        "Protect data keys",
-        "Rotated on a set schedule"
-       ]
-      },
-      {
-       "label": "Data encryption keys",
-       "parts": [
-        "Encrypt the actual data",
-        "Many per system; can be rotated by re-wrapping"
-       ]
-      },
-      {
-       "label": "Applications and services",
-       "parts": [
-        "Request keys through a key management service",
-        "Access controlled and logged"
-       ]
-      }
-     ]
+     "type": "tree",
+     "title": "Envelope encryption: a key hierarchy",
+     "caption": "Data keys encrypt data, key-encryption keys wrap data keys and the root never leaves the hardware. Rotating a key-encryption key means re-wrapping data keys, not re-encrypting every record.",
+     "root": {
+      "label": "Root key in HSM",
+      "text": "Never leaves the hardware",
+      "children": [
+       {
+        "label": "KEK: payments",
+        "text": "Wraps payment data keys; rotated yearly",
+        "children": [
+         {
+          "label": "DEK: card vault"
+         },
+         {
+          "label": "DEK: ledger backups"
+         }
+        ]
+       },
+       {
+        "label": "KEK: HR",
+        "text": "Wraps HR data keys",
+        "children": [
+         {
+          "label": "DEK: HR database"
+         },
+         {
+          "label": "DEK: HR documents"
+         }
+        ]
+       }
+      ]
+     }
     },
     {
      "type": "compare",
@@ -5883,8 +7511,50 @@ TRACK.modules.push({
     {
      "type": "callout",
      "kind": "insight",
-     "text": "A sufficiently large quantum computer could break widely used public-key algorithms such as RSA and elliptic-curve cryptography. In 2024 NIST published its first post-quantum standards, for key establishment (ML-KEM) and digital signatures (ML-DSA and SLH-DSA). Attackers can **harvest now and decrypt later**, so long-lived sensitive data is already at risk. The first step is not buying products; it is building a cryptographic inventory and making systems crypto-agile.",
+     "text": "A sufficiently large quantum computer could break widely used public-key algorithms such as RSA and elliptic-curve cryptography. In 2024 NIST published its first post-quantum standards, for key establishment (ML-KEM) and digital signatures (ML-DSA and SLH-DSA), and in 2025 it selected a backup key-establishment algorithm (HQC). Hybrid post-quantum key exchange is already switched on by default in some major browsers and TLS libraries. Attackers can **harvest now and decrypt later**, so long-lived sensitive data is already at risk. The first step is not buying products; it is building a cryptographic inventory and making systems crypto-agile.",
      "title": "Post-quantum cryptography is a governance programme"
+    },
+    {
+     "type": "timeline",
+     "title": "Post-quantum milestones and published targets",
+     "caption": "Dates after 2025 come from national roadmaps and draft guidance that may still change; check the current official timetable for your country and sector before committing a plan.",
+     "items": [
+      {
+       "when": "Aug 2024",
+       "label": "First NIST PQC standards",
+       "text": "ML-KEM, ML-DSA and SLH-DSA published"
+      },
+      {
+       "when": "Mar 2025",
+       "label": "Backup algorithm chosen",
+       "text": "HQC selected for key establishment"
+      },
+      {
+       "when": "2025",
+       "label": "National roadmaps",
+       "text": "UK and EU publish phased migration targets"
+      },
+      {
+       "when": "End 2026",
+       "label": "EU: start transition",
+       "text": "Member states begin migrating"
+      },
+      {
+       "when": "2028-2031",
+       "label": "Discovery and priority systems",
+       "text": "UK target: discovery by 2028, high-priority migration by 2031"
+      },
+      {
+       "when": "2030",
+       "label": "High-risk systems",
+       "text": "EU target; draft NIST guidance deprecates weaker RSA and ECC"
+      },
+      {
+       "when": "2035",
+       "label": "Migration complete",
+       "text": "Common end date for quantum-vulnerable public-key algorithms"
+      }
+     ]
     },
     {
      "type": "steps",
@@ -5958,7 +7628,7 @@ TRACK.modules.push({
      "options": [
       {
        "text": "Buy certificates with the longest available validity.",
-       "feedback": "Longer validity delays the problem and is increasingly limited by browser and industry rules.",
+       "feedback": "Not possible for public certificates: industry rules cut maximum TLS certificate lifetimes in steps, to 200 days from March 2026 and 47 days by 2029, so long validity is not a fix.",
        "best": false
       },
       {
@@ -6020,6 +7690,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Encryption is only as strong as key management: separate keys from data and give every key and certificate an owner.",
+      "Choose provider-managed, customer-managed or externally held keys by sensitivity, sovereignty and operational risk.",
+      "Shrinking public certificate lifetimes make automated issuance and renewal mandatory, not optional.",
+      "Post-quantum migration starts with a cryptographic inventory and crypto-agility, prioritised by data secrecy lifetime."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -6076,6 +7756,17 @@ TRACK.modules.push({
        ],
        "answer": 2,
        "explain": "Automation and ownership address the root cause."
+      },
+      {
+       "q": "Public TLS certificate lifetimes are being cut to 47 days by 2029. What is the main governance implication for a large estate?",
+       "options": [
+        "Buy certificates from a different authority that still offers multi-year validity for public websites",
+        "Move public services to self-signed certificates",
+        "Automate issuance and renewal for every certificate in an owned inventory",
+        "Assign the network team to check expiry dates by hand each month"
+       ],
+       "answer": 2,
+       "explain": "With short lifetimes, manual renewal cannot keep up and outages follow. An owned inventory with automated issuance and renewal is the only scalable answer; other authorities follow the same industry rules."
       }
      ]
     }
@@ -6094,7 +7785,7 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "Security protects data from unauthorised access. **Privacy** asks whether the organisation should collect and use the data at all, for what purpose, for how long and with what transparency to the person concerned. Data protection laws around the world, including the EU General Data Protection Regulation (GDPR), India's Digital Personal Data Protection Act 2023 and Bangladesh's newer personal data protection rules, share a common core even though details and penalties differ."
+     "text": "Security protects data from unauthorised access. **Privacy** asks whether the organisation should collect and use the data at all, for what purpose, for how long and with what transparency to the person concerned. Data protection laws around the world, including the EU General Data Protection Regulation (GDPR), India's Digital Personal Data Protection Act 2023 (with implementing rules notified in late 2025 and phased in over the following months) and Bangladesh's newer personal data protection rules, share a common core even though details and penalties differ."
     },
     {
      "type": "framework",
@@ -6267,6 +7958,38 @@ TRACK.modules.push({
      "title": "Deadlines differ"
     },
     {
+     "type": "timeline",
+     "title": "Notification clocks that can run in parallel (EU examples)",
+     "caption": "Which clocks apply depends on the entity: DORA for EU financial entities, NIS2 for essential and important entities, GDPR whenever personal data is breached. Simplified; map your own obligations with counsel before an incident.",
+     "items": [
+      {
+       "when": "Hour 0",
+       "label": "Awareness",
+       "text": "Most clocks start on awareness, not on confirmed facts"
+      },
+      {
+       "when": "Within 24 h",
+       "label": "DORA initial notification",
+       "text": "4 h after classifying as major, at most 24 h after awareness"
+      },
+      {
+       "when": "24 h",
+       "label": "NIS2 early warning",
+       "text": "Significant incident, to the CSIRT or authority"
+      },
+      {
+       "when": "72 h",
+       "label": "GDPR and NIS2 notifications",
+       "text": "Personal data breach to the supervisory authority; NIS2 incident notification"
+      },
+      {
+       "when": "1 month",
+       "label": "Final reports",
+       "text": "NIS2 final report within a month; DORA final report a month after the last update"
+      }
+     ]
+    },
+    {
      "type": "scenario",
      "title": "A new analytics idea",
      "situation": "A Bangladeshi MFS provider's growth team wants to use customers' transaction histories and phone contact lists to build a 'social credit' score sold to partner lenders. The data protection officer has not been consulted. What should the CISO and privacy lead insist on FIRST?",
@@ -6332,6 +8055,16 @@ TRACK.modules.push({
        "term": "Pseudonymisation",
        "def": "Processing data so it cannot be linked to a person without separately held additional information."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Privacy asks whether data should be collected and used at all; security protects it once it is.",
+      "Every processing purpose needs a lawful basis, and consent must be as easy to withdraw as to give.",
+      "Run a DPIA before high-risk processing such as profiling, large-scale sensitive data or new technology.",
+      "Several notification clocks can run at once; map regulators, deadlines and recipients in advance."
      ]
     },
     {
